@@ -9,7 +9,6 @@ import { AppearingText, NavigationWrapper } from '../../components/navigation';
 import Profile from '../../components/profile';
 import withLoader from '../../hocs/withLoader';
 
-import { capitalize } from '../../utils/mixins';
 import GET_ABOUT from './queries';
 
 class About extends React.Component {

@@ -5,7 +5,7 @@ import Noise from '../noise';
 import LoaderWrapper from './styles';
 import { AppearingText } from '../navigation';
 
-const text = 'Jose Sentis';
+const text = 'jose sentis';
 
 class Home extends React.Component {
   render() {

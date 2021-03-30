@@ -8,7 +8,6 @@ import { AppearingText, NavigationWrapper } from '../../components/navigation';
 import Layout, { Wrapper } from '../../layouts/Default';
 import Project from '../../components/project';
 
-import { capitalize } from '../../utils/mixins';
 import GET_PROJECTS from './queries';
 import BackgroundImage from '../../components/backgroundImage';
 import ProjectList from './styles';

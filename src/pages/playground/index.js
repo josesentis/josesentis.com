@@ -12,7 +12,6 @@ import CircleText from '../../components/circleText';
 import MovingText from '../../components/movingText';
 import Noise from '../../components/noise';
 
-import { capitalize } from '../../utils/mixins';
 import routes from '../../utils/routes';
 import GET_PLAYGROUND from './queries';
 import { ExerciceList } from './styles';
