@@ -51,16 +51,21 @@ class circleText extends React.Component {
 
     if (this.shouldShow()) textClass = 'visible';
     if (this.state.hover) textClass += ' hover';
+
     return (
       <TextWrapper
         className={textClass}
         onMouseEnter={() => {
-          this.handleMouseEnter();
-          onMouseEnter();
+          if (this.shouldShow()) {
+            this.handleMouseEnter();
+            onMouseEnter();
+          }
         }}
         onMouseLeave={() => {
-          this.handleMouseLeave();
-          onMouseLeave();
+          if (this.shouldShow()) {
+            this.handleMouseLeave();
+            onMouseLeave();
+          }
         }}
         ref={ref => this._circleRef = ref}
         {...props}

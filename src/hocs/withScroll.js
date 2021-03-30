@@ -15,7 +15,7 @@ const withScrollTop = WrappedComponent => {
     };
 
     componentWillUnmount() {
-      this.cancleScroll();
+      this.cancelScroll();
     };
 
     calculteUserScroll = () => {

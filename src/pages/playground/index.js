@@ -65,8 +65,8 @@ class Playground extends React.Component {
               <Wrapper>
                 <CircleText
                   text={this._circleTitle}
-                  onMouseEnter={() => toggleCursor('rotating-text')}
-                  onMouseLeave={() => toggleCursor('rotating-text')}
+                  onMouseEnter={() => { toggleCursor('rotating-text') }}
+                  onMouseLeave={() => { toggleCursor('rotating-text') }}
                 />
                 <div id="intro-text" className="intro">
                   <div dangerouslySetInnerHTML={{ __html: abstract }}></div>
