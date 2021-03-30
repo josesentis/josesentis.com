@@ -13,6 +13,10 @@ const ExerciceStyled = styled.div`
     margin-bottom: ${space()};
   }
 
+  ${media.max('tablet')`
+    .content-text { margin-top: ${space()}; }
+  `}
+
   ${media.min('tablet')`
     align-items: center;
     display: flex;
