@@ -40,7 +40,7 @@ class Header extends React.Component {
                             onMouseLeave={() => toggleCursor()}
                           >
                             <span>{name}</span>
-                            <span>Folio - {new Date().getFullYear()}</span>
+                            <span>folio - {new Date().getFullYear()}</span>
                           </Link>
                         </div>
                         <div>{job}</div>

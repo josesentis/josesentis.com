@@ -24,7 +24,7 @@ class About extends React.Component {
           } = data.sections;
 
           return (
-            <Layout location={this.props.location} title={capitalize(about)} className="about">
+            <Layout location={this.props.location} title={about} className="about">
               <Header />
               <Wrapper>
                 <NavigationWrapper className="fixed">
