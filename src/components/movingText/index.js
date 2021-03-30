@@ -6,9 +6,11 @@ class movingText extends React.PureComponent {
   render() {
     const { children, ...props } = this.props;
 
+    console.log('Movingtext Render');
+
     return (
-      <TextWrapper {...props}>
-        <span>{children}</span>
+      <TextWrapper {...props} aria-hidden="true">
+        <div>{children}</div>
       </TextWrapper>
     );
   }

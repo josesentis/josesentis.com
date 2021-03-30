@@ -18,8 +18,7 @@ import GET_PLAYGROUND from './queries';
 import { ExerciceList } from './styles';
 
 class Playground extends React.Component {
-  _rotatingTitle = `playground * `;
-  _circleTitle = `playground*`;
+  _rotatingTitle = `playground`;
   _interval = '';
   state = {
     title: '',
@@ -36,12 +35,10 @@ class Playground extends React.Component {
       });
   }
 
-  animateProjects = () => {
-    console.log('scrolling...');
-  }
-
   render() {
     const { loaded, exercices } = this.state;
+
+    console.log('Page render');
 
     return (
       <Query query={GET_PLAYGROUND}>
@@ -59,12 +56,12 @@ class Playground extends React.Component {
           } = data;
 
           return loaded && (
-            <Layout location={this.props.location} title={striptags(capitalize(`${playground} *`))} className="playground headerless">
+            <Layout location={this.props.location} title={striptags(capitalize(playground))} className="playground headerless">
               <Noise />
-              <MovingText id="moving-text">{[...Array(8)].map(() => this._rotatingTitle)}</MovingText>
+              <MovingText id="moving-text">{[...Array(4)].map((item, index) => <span key={`text-${index}`}>{this._rotatingTitle}</span>)}</MovingText>
               <Wrapper>
                 <CircleText
-                  text={this._circleTitle}
+                  text={this._rotatingTitle}
                   onMouseEnter={() => { toggleCursor('rotating-text') }}
                   onMouseLeave={() => { toggleCursor('rotating-text') }}
                 />

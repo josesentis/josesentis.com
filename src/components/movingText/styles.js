@@ -2,12 +2,12 @@ import styled, { keyframes } from 'styled-components';
 
 import { media } from '../../utils/media-queries';
 
-const moveLeft = keyframes`
+const moveLeft1 = keyframes`
   0% {
-    transform: translateX(-20vw);
+    transform: translate3d(var(--move-initial), 0, 0);
   }
   100% {
-    transform: translateX(-2000vw);
+    transform: translate3d(var(--move-final), 0, 0);
   }
 `;
 
@@ -21,30 +21,38 @@ const textStroke = `
 `;
 
 const TextWrapper = styled.div`
-  font-size: 120px;
+  font-size: var(--text-font-size);
   line-height: 1.2;
-  margin-top: -0.5rem;
+  margin-top: -0.4rem;
   overflow: hidden;
+  position: relative;
+  width: 100vw;
   pointer-events: none;
+
+  --offset: 40vw;
+  --text-font-size: calc(var(--offset) / 2);
+  --move-initial: calc(-25% + 40vw);
+  --move-final: calc(-50% + 40vw);
 
   ${textStroke}
 
-  span {
-    animation: ${moveLeft} 150s infinite linear;
-    white-space: nowrap;
-    display: block;
+  div {
+    animation: ${moveLeft1} 10s linear infinite;
+    display: flex;
     position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    width: fit-content;
+    white-space: nowrap;
   }
 
-  &::selection { background-color: transparent; }
+  span {
+    display: block;
+    padding: 0 2vw;
+  }
 
   ${media.min('tablet')`
-    font-size: 168px;
-    margin-top: -1rem;
-
-    span {
-      animation: ${moveLeft} 400s infinite linear;
-    }
+    --offset: 20vw;
+    margin-top: -0.8rem;
   `}
 `;
 
