@@ -3,7 +3,7 @@ const data = {
   name: `jose sentis`,
   description: `Hi – I’m Jose, a Senior Frontend developer based in Barcelona. I’m open for new creative opportunities. Don’t be shy, say hi!`,
   ogImage: `images/og-image.jpg`,
-  siteUrl: `https://josesentis.com/`,
+  siteUrl: `https://josesentis.com`,
   social: {
     __typename: 'Social',
     github: `https://github.com/josesentis`,
