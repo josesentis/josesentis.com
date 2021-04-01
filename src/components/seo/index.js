@@ -15,6 +15,7 @@ class SEO extends React.Component {
           const titleTemplate = title ? `%s | ${webTitle}` : `%s`;
           const metaDescription = description || data.description;
           const metaTitle = title || webTitle;
+          const { siteUrl, ogImage } = data;
 
           return (
             <Helmet
@@ -26,6 +27,21 @@ class SEO extends React.Component {
               meta={meta}
             >
               <meta name="description" content={metaDescription} />
+
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content={siteUrl} />
+              <meta property="og:image" content={`${siteUrl}/${ogImage}`} />
+              <meta property="og:title" content={metaTitle} />
+              <meta property="og:description" content={metaDescription} />
+
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:site" content={metaTitle} />
+              <meta name="twitter:title" content={metaTitle} data-react-helmet="true" />
+              <meta name="twitter:description" content={metaDescription} />
+              <meta
+                name="twitter:image"
+                content={`${siteUrl}/${ogImage}`}
+              />
 
               <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
               <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
