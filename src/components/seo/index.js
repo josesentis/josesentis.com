@@ -35,7 +35,7 @@ class SEO extends React.Component {
               <meta property="og:description" content={metaDescription} />
 
               <meta name="twitter:card" content="summary" />
-              <meta name="twitter:site" content={metaTitle} />
+              <meta name="twitter:site" content="@josesentis_" />
               <meta name="twitter:title" content={metaTitle} data-react-helmet="true" />
               <meta name="twitter:description" content={metaDescription} />
               <meta
