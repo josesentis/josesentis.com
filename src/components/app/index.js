@@ -17,6 +17,7 @@ import data from '../../data/cache';
 import client from '../../utils/apollo';
 import history from '../../utils/history'
 import GlobalStyle from '../../styles';
+import firmLogger from '../../utils/firm-logger';
 
 const App = () => {
   axios.defaults.baseURL = playground;
@@ -28,7 +29,7 @@ const App = () => {
     if (isExplorer()) document.documentElement.classList.add('browser-ie');
     document.documentElement.classList.add(touchable() ? 'touch' : 'non-touch');
 
-    console.log("%josesentis.com","color: blue; font-size: 20px");
+    firmLogger();
   }, []);
 
   const title = `${data.name} - ${data.job}`;
