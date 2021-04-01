@@ -10,7 +10,7 @@ const data = {
     linkedin: `https://www.linkedin.com/in/jose-sentis`,
     instagram: `https://www.instagram.com/codeplayground_`,
     twitter: `https://twitter.com/josesentis_`,
-    email: 'jose.sentis1987@gmail.com',
+    email: 'sayhi@josesentis.com',
   },
   sections: {
     __typename: 'Sections',
