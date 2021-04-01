@@ -16,7 +16,7 @@ const stylesArray2 = [
 ].join(';');
 
 const firmLogger = () => (
-  console.log(`%c⚫️ josesentis.com %cthanks for visiting my portfolio website. contact for project inquiries:\n- ${data.social.email}\n - ${data.social.linkedin}\n - ${data.social.instagram}`, stylesArray, stylesArray2)
+  console.log(`%c⚫️ josesentis.com %cthanks for visiting my portfolio website. contact for project inquiries:\n- ${data.social.email}\n- ${data.social.linkedin}\n- ${data.social.instagram}`, stylesArray, stylesArray2)
 );
 
 export default firmLogger;
