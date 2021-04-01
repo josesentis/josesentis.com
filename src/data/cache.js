@@ -7,7 +7,7 @@ const data = {
   social: {
     __typename: 'Social',
     github: `https://github.com/josesentis`,
-    linkedin: `https://www.linkedin.com/in/jose-sentis-vazquez-b0915679`,
+    linkedin: `https://www.linkedin.com/in/jose-sentis`,
     instagram: `https://www.instagram.com/codeplayground_`,
     twitter: `https://twitter.com/josesentis_`,
     email: 'jose.sentis1987@gmail.com',
