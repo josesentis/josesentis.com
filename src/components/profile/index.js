@@ -9,12 +9,29 @@ import ProfileWrapper from './styles';
 import GET_PROFILE from './queries';
 
 class Profile extends React.Component {
+  mainTag = null;
+  content = null;
+  image = null;
+
   componentDidMount() {
+    this.mainTag = document.getElementsByTagName('main')[0];
+    this.content = document.getElementById('content');
+    this.image = document.getElementById('image');
+
     this.triggerHover();
+    this.mainTag.addEventListener('scroll', this.onScroll);
   }
 
   componentWillUnmount() {
     this.removeHover();
+    this.mainTag.removeEventListener('scroll', this.onScroll);
+  }
+
+  onScroll = () => {
+    const { y, height } = this.content.getBoundingClientRect();
+
+    if (y + height <= window.innerHeight) this.image.classList.add('fixed');
+    else this.image.classList.remove('fixed');
   }
 
   triggerHover = () => {
@@ -55,8 +72,8 @@ class Profile extends React.Component {
 
     return (
       <ProfileWrapper ref={ref => this._text = ref}>
-        <div className="profile-image"><BackgroundImage src={image} /></div>
-        <div className="content-wrapper">
+        <div id="content" className="content-wrapper">
+          <div id="image" className="profile-image"><BackgroundImage src={image} /></div>
           <div className="content">
             <div className="p-big">
               <div
