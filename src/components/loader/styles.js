@@ -17,8 +17,6 @@ const LoaderWrapper = styled.div`
   transition: opacity .3s ease-out;
   z-index: 10;
 
-  &.loaded-enter-done { opacity: 0; }
-
   .title { color: ${colors.white}; }
 
   ${media.max('phone')`
@@ -40,72 +38,24 @@ const LoaderWrapper = styled.div`
     }
   `}
 
-  &.loaded-enter-active .text {
-    transition: transform 1s cubic-bezier(.215, .61, .355, 1);
-    transform: translateY(0);
+  .text {
+    transition: transform 1s cubic-bezier(.215, .61, .355, 1) !important;
+
+    &:nth-child(1) { transition-delay: .15s !important; }
+    &:nth-child(2) { transition-delay: .2s !important; }
+    &:nth-child(3) { transition-delay: .25s !important; }
+    &:nth-child(4) { transition-delay: .3s !important; }
+    &:nth-child(5) { transition-delay: .35s !important; }
+    &:nth-child(6) { transition-delay: .4s !important; }
+    &:nth-child(7) { transition-delay: .45s !important; }
+    &:nth-child(8) { transition-delay: .5s !important; }
+    &:nth-child(9) { transition-delay: .55s !important; }
+    &:nth-child(10) { transition-delay: .6s !important; }
+    &:nth-child(11) { transition-delay: .65s !important; }
   }
 
-  &.loaded-enter-active .duplicated-text,
-  &.loaded-enter-done .duplicated-text { opacity: 1; }
-
-  .duplicated-text {
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    width: 100%;
-
-    &:nth-child(1) {
-      transform: translateY(-550%);
-      transition-delay: 2.2s;
-    }
-
-    &:nth-child(2) {
-      transform: translateY(-450%);
-      transition-delay: 1.9s;
-    }
-
-    &:nth-child(3) {
-      transform: translateY(-350%);
-      transition-delay: 1.6s;
-    }
-
-    &:nth-child(4) {
-      transform: translateY(-250%);
-      transition-delay: 1.3s;
-    }
-
-    &:nth-child(5) {
-      transform: translateY(-150%);
-      transition-delay: 1s;
-    }
-
-    &:nth-child(7) {
-      transform: translateY(50%);
-      transition-delay: 1s;
-    }
-
-    &:nth-child(8) {
-      transform: translateY(150%);
-      transition-delay: 1.3s;
-    }
-
-    &:nth-child(9) {
-      transform: translateY(250%);
-      transition-delay: 1.6s;
-    }
-
-    &:nth-child(10) {
-      transform: translateY(350%);
-      transition-delay: 1.9s;
-    }
-
-    &:nth-child(11) {
-      transform: translateY(450%);
-      transition-delay: 2.2s;
-    }
-  }
+  &.loaded-enter-active .text { transform: translateY(0); }
+  &.loaded-enter-done { opacity: 0; }
 `;
 
 export default LoaderWrapper;
