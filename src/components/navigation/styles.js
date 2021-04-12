@@ -52,12 +52,6 @@ const NavigationWrapper = styled.div`
     }
 
     .double-link-mobile { display: none; }
-
-    &.fixed {
-      height: 18vw;
-
-      > div { position: fixed; }
-    }
   `}
 
   ${media.min('maxWidth')`
