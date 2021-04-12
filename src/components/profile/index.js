@@ -47,7 +47,8 @@ class Profile extends React.Component {
       pages: {
         about: {
           content,
-          image
+          image,
+          sayhi
         }
       }
     } = this.props.data;
@@ -60,7 +61,7 @@ class Profile extends React.Component {
             <div className="p-big">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: content.replace('%link', email)
+                  __html: content
                 }}
               />
               <div className="social">
@@ -105,6 +106,16 @@ class Profile extends React.Component {
               </p>
             </div>
           </div>
+        </div>
+        <div
+          className="say-hi"
+        >
+          <div
+            className="title2"
+            dangerouslySetInnerHTML={{
+              __html: sayhi.replace('%link', email)
+            }}
+          />
         </div>
       </ProfileWrapper>
     );

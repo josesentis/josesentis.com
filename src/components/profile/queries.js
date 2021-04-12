@@ -13,6 +13,7 @@ const GET_PROFILE = gql`
       about {
         content
         image
+        sayhi
       }
     }
   }
