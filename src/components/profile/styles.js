@@ -64,6 +64,8 @@ const ProfileWrapper = styled.div`
 
   ${media.between('tablet', 'desktop')`
     .content { margin-top: ${space(2)}; }
+    .social { align-items: flex-end; }
+    .thanks { text-align: right; }
   `}
 
   ${media.min('desktop')`
