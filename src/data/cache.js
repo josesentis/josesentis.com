@@ -14,7 +14,7 @@ const data = {
   },
   sections: {
     __typename: 'Sections',
-    playground: '<span>play</span><span>ground</span>',
+    playground: 'play<hr />ground',
     projects: 'projects',
     about: 'about',
   },

@@ -39,7 +39,11 @@ class Navigation extends React.Component {
                         onMouseEnter={() => toggleCursor()}
                         onMouseLeave={() => toggleCursor()}
                       >
-                        <AppearingText><span className="text">{projects}</span></AppearingText>
+                        <AppearingText>
+                          {projects.split('').map((char, i) => (
+                            <span key={`char-${i}`} className="text active">{char}</span>
+                          ))}
+                        </AppearingText>
                       </Link>
                     </div>
                   </CSSTransition>
@@ -49,12 +53,32 @@ class Navigation extends React.Component {
                     <div>
                       <Link
                         to={routes.playground}
-                        className="title link double-link"
+                        className="title link double-link double-link-mobile"
                         onMouseEnter={() => toggleCursor()}
                         onMouseLeave={() => toggleCursor()}
                       >
                         <AppearingText>
-                          <span className="text" dangerouslySetInnerHTML={{ __html: playground }} />
+                          {playground.split('<hr />').map((half, j) => (
+                              <span>
+                              {half.split('').map((char, i) => (
+                                <span key={`char-playground-${i}-${j}-mobile`} className="text active">{char}</span>
+                              ))}
+                              </span>
+                            )
+                          )}
+                        </AppearingText>
+                      </Link>
+                      <Link
+                        to={routes.playground}
+                        className="title link double-link double-link-desktop"
+                        onMouseEnter={() => toggleCursor()}
+                        onMouseLeave={() => toggleCursor()}
+                      >
+                        <AppearingText>
+                          {playground.split('<hr />').map((half, j) => half.split('').map((char, i) => (
+                              <span key={`char-playground-${i}-${j}-desktop`} className="text active">{char}</span>
+                            ))
+                          )}
                         </AppearingText>
                       </Link>
                     </div>
@@ -69,7 +93,11 @@ class Navigation extends React.Component {
                         onMouseEnter={() => toggleCursor()}
                         onMouseLeave={() => toggleCursor()}
                       >
-                        <AppearingText><span className="text">{about}</span></AppearingText>
+                        <AppearingText>
+                          {about.split('').map((char, i) => (
+                            <span key={`char-about-${i}`} className="text active">{char}</span>
+                          ))}
+                        </AppearingText>
                       </Link>
                     </div>
                   </CSSTransition>

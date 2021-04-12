@@ -24,8 +24,11 @@ const NavigationWrapper = styled.div`
     .double-link {
       line-height: 1;
 
+      &-desktop { display: none; }
+
       span:not(.text) {
         display: block;
+        overflow: hidden;
       }
     }
   `}
@@ -47,6 +50,8 @@ const NavigationWrapper = styled.div`
 
       .home & { margin-bottom: ${space()}; }
     }
+
+    .double-link-mobile { display: none; }
 
     &.fixed {
       height: 18vw;
@@ -71,7 +76,7 @@ const NavigationWrapper = styled.div`
   `}
 `;
 
-const AppearingText = styled.span`
+const AppearingText = styled.div`
   display: block;
   position: relative;
   overflow: hidden;
