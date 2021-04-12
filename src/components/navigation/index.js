@@ -41,7 +41,7 @@ class Navigation extends React.Component {
                       >
                         <AppearingText>
                           {projects.split('').map((char, i) => (
-                            <span key={`char-${i}`} className="text active">{char}</span>
+                            <span key={`char-${i}`} className="text">{char}</span>
                           ))}
                         </AppearingText>
                       </Link>
@@ -61,7 +61,7 @@ class Navigation extends React.Component {
                           {playground.split('<hr />').map((half, j) => (
                               <span>
                               {half.split('').map((char, i) => (
-                                <span key={`char-playground-${i}-${j}-mobile`} className="text active">{char}</span>
+                                <span key={`char-playground-${i}-${j}-mobile`} className="text">{char}</span>
                               ))}
                               </span>
                             )
@@ -76,7 +76,7 @@ class Navigation extends React.Component {
                       >
                         <AppearingText>
                           {playground.split('<hr />').map((half, j) => half.split('').map((char, i) => (
-                              <span key={`char-playground-${i}-${j}-desktop`} className="text active">{char}</span>
+                              <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
                             ))
                           )}
                         </AppearingText>
@@ -95,7 +95,7 @@ class Navigation extends React.Component {
                       >
                         <AppearingText>
                           {about.split('').map((char, i) => (
-                            <span key={`char-about-${i}`} className="text active">{char}</span>
+                            <span key={`char-about-${i}`} className="text">{char}</span>
                           ))}
                         </AppearingText>
                       </Link>
