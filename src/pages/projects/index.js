@@ -49,7 +49,11 @@ class Projects extends React.Component {
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={300}>
                         <h1 className="title">
-                          <AppearingText><span className="text active">{projects}</span></AppearingText>
+                          <AppearingText>
+                            {projects.split('').map((char, i) => (
+                              <span key={`char-${i}`} className="text active">{char}</span>
+                            ))}
+                          </AppearingText>
                         </h1>
                       </CSSTransition>
                     )}

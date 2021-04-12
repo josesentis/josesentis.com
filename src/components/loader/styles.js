@@ -40,18 +40,6 @@ const LoaderWrapper = styled.div`
 
   .text {
     transition: transform 1s cubic-bezier(.215, .61, .355, 1) !important;
-
-    &:nth-child(1) { transition-delay: .15s !important; }
-    &:nth-child(2) { transition-delay: .2s !important; }
-    &:nth-child(3) { transition-delay: .25s !important; }
-    &:nth-child(4) { transition-delay: .3s !important; }
-    &:nth-child(5) { transition-delay: .35s !important; }
-    &:nth-child(6) { transition-delay: .4s !important; }
-    &:nth-child(7) { transition-delay: .45s !important; }
-    &:nth-child(8) { transition-delay: .5s !important; }
-    &:nth-child(9) { transition-delay: .55s !important; }
-    &:nth-child(10) { transition-delay: .6s !important; }
-    &:nth-child(11) { transition-delay: .65s !important; }
   }
 
   &.loaded-enter-active .text { transform: translateY(0); }
