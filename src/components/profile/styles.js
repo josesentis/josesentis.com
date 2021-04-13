@@ -74,7 +74,7 @@ const ProfileWrapper = styled.div`
   `}
 
   ${media.min('desktopLarge')`
-    .content { padding-left: 40vw; }
+    .content { padding-left: calc(40vw + ${space(2)}); }
   `}
 `;
 
