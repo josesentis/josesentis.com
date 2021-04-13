@@ -25,14 +25,8 @@ const Wrapper = styled.div`
 `;
 
 const LayoutStyled = styled.div`
-  // height: 100%;
-  // left: 0;
   opacity: 1;
-  // overflow: hidden;
-  // position: absolute;
   transition: opacity .3s linear;
-  // top: 0;
-  // width: 100vw;
 
   &.home.fade-enter { opacity: 1; }
 
@@ -42,18 +36,6 @@ const LayoutStyled = styled.div`
 
   &.fade-exit,
   &.fade-exit-active { opacity: 0; }
-
-  main {
-    // height: 100%;
-    // overflow-y: auto;
-    // padding-top: ${space(4.5)};
-    // width: 100%;
-  }
-
-  // &.home main {
-  //   display: flex;
-  //   overflow: auto;
-  // }
 
   &.playground main,
   &.dark main {
@@ -65,14 +47,6 @@ const LayoutStyled = styled.div`
       color: ${colors.primary};
     }
   }
-
-  // &.dark main {
-  //   color: ${colors.white};
-
-  //   a {
-  //     color: ${colors.white};
-  //   }
-  // }
 
   &.not-found .title {
     ${media.max('desktop')`

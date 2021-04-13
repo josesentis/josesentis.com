@@ -6,12 +6,12 @@ import { space } from '../../utils/mixins';
 const Fold = styled.div`
   align-items: flex-end;
   display: flex;
-  // min-height: 100vh;
+  min-height: 100vh;
   padding: ${space(4.5)} 0 ${space(3)};
 `;
 
 const ProjectList = styled.div`
-  margin: ${space(2)} 0;
+  margin-bottom: ${space(2)};
 
   .project-image-animation { display: none; }
 
