@@ -17,12 +17,14 @@ import { Fold, ProjectList } from './styles';
 class Home extends React.Component {
   render () {
     const { loaded } = this.props;
+    const currentYear = new Date().getFullYear().toString();
 
     return (
       <Query query={GET_PROJECTS}>
         {({ loading, data }) => {
           const {
             job,
+            name,
             pages: {
               projects: {
                 projectList
@@ -31,13 +33,13 @@ class Home extends React.Component {
           } = data;
 
           return (
-            <Layout location={this.props.location} className="home">
+            <Layout location={this.props.location}>
               <Header />
               <Wrapper>
                 <Fold>
                   <TransitionGroup>
                     {loaded && !loading && (
-                      <CSSTransition classNames="loaded" timeout={300}>
+                      <CSSTransition classNames="loaded" timeout={400}>
                         <h1 className="title">
                           {job.split(' ').map((word, j) => (
                             <AppearingText>
@@ -48,6 +50,15 @@ class Home extends React.Component {
                           )
                           )}
                         </h1>
+                      </CSSTransition>
+                    )}
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={600}>
+                        <div>
+                          <AppearingText className="p-big">
+                            <span className="text">{name} - {currentYear}</span>
+                          </AppearingText>
+                        </div>
                       </CSSTransition>
                     )}
                   </TransitionGroup>
