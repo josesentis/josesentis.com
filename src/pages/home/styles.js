@@ -6,7 +6,7 @@ import { space } from '../../utils/mixins';
 const Fold = styled.div`
   align-items: flex-end;
   display: flex;
-  height: 100vh;
+  // min-height: 100vh;
   padding: ${space(4.5)} 0 ${space(3)};
 `;
 

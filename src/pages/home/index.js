@@ -55,8 +55,8 @@ class Home extends React.Component {
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={600}>
                         <div>
-                          <AppearingText className="p-big">
-                            <span className="text">{name} - {currentYear}</span>
+                          <AppearingText className="title2">
+                            <span className="text">{name} - © {currentYear}</span>
                           </AppearingText>
                         </div>
                       </CSSTransition>
