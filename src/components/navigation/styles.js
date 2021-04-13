@@ -13,8 +13,7 @@ const NavigationWrapper = styled.div`
   > div { width: 100%; }
 
   .title {
-    .home & { margin-bottom: ${space(1)}; }
-
+    margin-bottom: ${space(1)};
     margin-left: -7px;
   }
 
@@ -54,13 +53,13 @@ const NavigationWrapper = styled.div`
     .double-link-mobile { display: none; }
   `}
 
-  ${media.min('maxWidth')`
-    &.fixed { height: 185px; }
-  `}
+  // ${media.min('maxWidth')`
+  //   &.fixed { height: 185px; }
+  // `}
 
-  ${media.min('bigScreens')`
-    &.fixed { height: 260px; }
-  `}
+  // ${media.min('bigScreens')`
+  //   &.fixed { height: 260px; }
+  // `}
 
   ${media.between('desktop', 'desktopLarge')`
     .home & {

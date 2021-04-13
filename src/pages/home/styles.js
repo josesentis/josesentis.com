@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
 
-const Title = styled.h1`
-  div {
-    display: block;
-  }
+const Fold = styled.div`
+  align-items: flex-end;
+  display: flex;
+  height: 100vh;
+  padding: ${space(4.5)} 0 ${space(3)};
 `;
 
 const ProjectList = styled.div`
@@ -72,4 +73,4 @@ const ProjectList = styled.div`
   `}
 `;
 
-export { Title, ProjectList };
+export { Fold, ProjectList };

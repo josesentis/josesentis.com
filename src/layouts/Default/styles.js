@@ -25,14 +25,14 @@ const Wrapper = styled.div`
 `;
 
 const LayoutStyled = styled.div`
-  height: 100%;
-  left: 0;
+  // height: 100%;
+  // left: 0;
   opacity: 1;
-  overflow: hidden;
-  position: absolute;
+  // overflow: hidden;
+  // position: absolute;
   transition: opacity .3s linear;
-  top: 0;
-  width: 100vw;
+  // top: 0;
+  // width: 100vw;
 
   &.home.fade-enter { opacity: 1; }
 
@@ -44,16 +44,16 @@ const LayoutStyled = styled.div`
   &.fade-exit-active { opacity: 0; }
 
   main {
-    height: 100%;
-    overflow-y: auto;
-    padding-top: ${space(4.5)};
-    width: 100%;
+    // height: 100%;
+    // overflow-y: auto;
+    // padding-top: ${space(4.5)};
+    // width: 100%;
   }
 
-  &.home main {
-    display: flex;
-    overflow: auto;
-  }
+  // &.home main {
+  //   display: flex;
+  //   overflow: auto;
+  // }
 
   &.playground main,
   &.dark main {
@@ -66,13 +66,13 @@ const LayoutStyled = styled.div`
     }
   }
 
-  &.dark main {
-    color: ${colors.white};
+  // &.dark main {
+  //   color: ${colors.white};
 
-    a {
-      color: ${colors.white};
-    }
-  }
+  //   a {
+  //     color: ${colors.white};
+  //   }
+  // }
 
   &.not-found .title {
     ${media.max('desktop')`

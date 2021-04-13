@@ -12,7 +12,7 @@ import withLoader from '../../hocs/withLoader';
 import Layout, { Wrapper } from '../../layouts/Default';
 
 import GET_PROJECTS from './queries';
-import { Title, ProjectList } from './styles';
+import { Fold, ProjectList } from './styles';
 
 class Home extends React.Component {
   render () {
@@ -34,22 +34,24 @@ class Home extends React.Component {
             <Layout location={this.props.location} className="home">
               <Header />
               <Wrapper>
-                <TransitionGroup>
-                  {loaded && !loading && (
-                    <CSSTransition classNames="loaded" timeout={300}>
-                      <Title className="title">
-                        {job.split(' ').map((word, j) => (
-                          <AppearingText>
-                            {word.split('').map((char, i) => (
-                              <span key={`title-${i}-${j}`} className="text">{char}</span>
-                            ))}
-                          </AppearingText>
-                        )
-                        )}
-                      </Title>
-                    </CSSTransition>
-                  )}
-                </TransitionGroup>
+                <Fold>
+                  <TransitionGroup>
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={300}>
+                        <h1 className="title">
+                          {job.split(' ').map((word, j) => (
+                            <AppearingText>
+                              {word.split('').map((char, i) => (
+                                <span key={`title-${i}-${j}`} className="text">{char}</span>
+                              ))}
+                            </AppearingText>
+                          )
+                          )}
+                        </h1>
+                      </CSSTransition>
+                    )}
+                  </TransitionGroup>
+                </Fold>
                 <ProjectList id="project-list">
                   {projectList.map(project => (
                     <Project
