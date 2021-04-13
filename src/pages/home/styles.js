@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
 
+const Title = styled.h1`
+  div {
+    display: block;
+  }
+`;
+
 const ProjectList = styled.div`
   margin: ${space(2)} 0;
 
@@ -66,4 +72,4 @@ const ProjectList = styled.div`
   `}
 `;
 
-export default ProjectList;
+export { Title, ProjectList };

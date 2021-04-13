@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 
 const GET_PROJECTS = gql`
   {
+    job @client
     pages @client {
       projects {
         projectList {

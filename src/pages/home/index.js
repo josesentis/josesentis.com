@@ -1,23 +1,28 @@
 import React from 'react';
 import { Query } from "react-apollo";
 import { withRouter } from "react-router";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import Header from '../../components/header';
-import Layout, { Wrapper } from '../../layouts/Default';
-// import Navigation from '../components/navigation';
-import Project from '../../components/project';
 import BackgroundImage from '../../components/backgroundImage';
+import Header from '../../components/header';
+// import Navigation from '../components/navigation';
+import { AppearingText } from '../../components/navigation';
+import Project from '../../components/project';
+import withLoader from '../../hocs/withLoader';
+import Layout, { Wrapper } from '../../layouts/Default';
 
 import GET_PROJECTS from './queries';
-import ProjectList from './styles';
-
+import { Title, ProjectList } from './styles';
 
 class Home extends React.Component {
   render () {
+    const { loaded } = this.props;
+
     return (
       <Query query={GET_PROJECTS}>
         {({ loading, data }) => {
           const {
+            job,
             pages: {
               projects: {
                 projectList
@@ -25,10 +30,26 @@ class Home extends React.Component {
             }
           } = data;
 
-          return !loading && (
+          return (
             <Layout location={this.props.location} className="home">
               <Header />
               <Wrapper>
+                <TransitionGroup>
+                  {loaded && !loading && (
+                    <CSSTransition classNames="loaded" timeout={300}>
+                      <Title className="title">
+                        {job.split(' ').map((word, j) => (
+                          <AppearingText>
+                            {word.split('').map((char, i) => (
+                              <span key={`title-${i}-${j}`} className="text">{char}</span>
+                            ))}
+                          </AppearingText>
+                        )
+                        )}
+                      </Title>
+                    </CSSTransition>
+                  )}
+                </TransitionGroup>
                 <ProjectList id="project-list">
                   {projectList.map(project => (
                     <Project
@@ -57,6 +78,6 @@ class Home extends React.Component {
   }
 }
 
-export default withRouter(Home);
+export default withLoader(withRouter(Home));
 
 // <Navigation />

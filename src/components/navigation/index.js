@@ -11,11 +11,11 @@ import GET_SECTIONS from './queries';
 import NavigationWrapper, { AppearingText } from './styles';
 
 class Navigation extends React.Component {
-  componentWillUnmount() {
+  componentWillUnmount () {
     toggleCursor('', true);
   }
 
-  render() {
+  render () {
     const { loaded } = this.props;
 
     return (
@@ -59,12 +59,12 @@ class Navigation extends React.Component {
                       >
                         <AppearingText>
                           {playground.split('<hr />').map((half, j) => (
-                              <span>
+                            <span>
                               {half.split('').map((char, i) => (
                                 <span key={`char-playground-${i}-${j}-mobile`} className="text">{char}</span>
                               ))}
-                              </span>
-                            )
+                            </span>
+                          )
                           )}
                         </AppearingText>
                       </Link>
@@ -76,8 +76,8 @@ class Navigation extends React.Component {
                       >
                         <AppearingText>
                           {playground.split('<hr />').map((half, j) => half.split('').map((char, i) => (
-                              <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
-                            ))
+                            <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
+                          ))
                           )}
                         </AppearingText>
                       </Link>

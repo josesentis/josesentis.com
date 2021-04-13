@@ -45,7 +45,7 @@ const ProjectStyled = styled.div`
 
   .non-touch & {
     color: ${colors.base300};
-    &.active { color: ${colors.white}; }
+    // &.active { color: ${colors.white}; }
     .project__touch-title { display: none; }
   }
 
