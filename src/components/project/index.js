@@ -12,12 +12,12 @@ class Project extends React.PureComponent {
     hover: false
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { title } = this.props.project;
     this._projectImage = document.getElementById(title.replace(' ', '-'));
   }
 
-  render() {
+  render () {
     const {
       project: {
         abstract,
@@ -74,37 +74,14 @@ class Project extends React.PureComponent {
               {content}
             </a>
           ) : (
-              <Link className="project__touch-title" to={`projects/${slug}`} onClick={e => e.stopPropagation()}>
-                {content}
-              </Link>
-            )}
-          <div className="project__non-touch-title">
-            {content}
-          </div>
+            <Link className="project__touch-title" to={`projects/${slug}`} onClick={e => e.stopPropagation()}>
+              {content}
+            </Link>
+          )}
         </h2>
-        <AnimateHeight
-          duration={400}
-          height={hover ? 'auto' : 0}
-          animateOpacity
-          className="project__content-wrapper"
-        >
-          <div className="project__content">
-            <BackgroundImage src={image} className="project__image" />
-            <p className="project__text" dangerouslySetInnerHTML={{ __html: abstract }} />
-            {external ? (
-              <a
-                className="external"
-                href={externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Go to site
-              </a>
-            ) : (
-                <Link to={`projects/${slug}`} onClick={e => e.stopPropagation()}>View project</Link>
-              )}
-          </div>
-        </AnimateHeight>
+        <div className="project__content">
+          <BackgroundImage src={image} className="project__image" />
+        </div>
       </ProjectStyled>
     );
   }

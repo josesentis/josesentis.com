@@ -38,18 +38,18 @@ const ProjectStyled = styled.div`
 
   .project__touch-title .label { opacity: 1; }
 
-  .touch & {
-    .project__non-touch-title,
-    .project__content { display: none; }
-  }
+  // .touch & {
+  //   .project__non-touch-title,
+  //   .project__content { display: none; }
+  // }
 
-  .non-touch & {
-    color: ${colors.base300};
+  // .non-touch & {
+    // color: ${colors.base300};
     // &.active { color: ${colors.white}; }
-    .project__touch-title { display: none; }
-  }
+    // .project__touch-title { display: none; }
+  // }
 
-  .project__touch-title::after { display: none; }
+  // .project__touch-title::after { display: none; }
 
   ${media.min('tablet')`
     .project__title {
@@ -63,17 +63,17 @@ const ProjectStyled = styled.div`
 
     .label { bottom: 14px; }
 
-    .project__text,
-    .project__title {
-      position: relative;
-      z-index: 1;
-    }
+    // .project__text,
+    // .project__title {
+    //   position: relative;
+    //   z-index: 1;
+    // }
 
-    .project__text {
-      margin-bottom: ${space(2)};
-      column-count: 2;
-      column-gap: ${space(2)};
-    }
+    // .project__text {
+    //   margin-bottom: ${space(2)};
+    //   column-count: 2;
+    //   column-gap: ${space(2)};
+    // }
 
     .project__image {
       position: fixed !important;

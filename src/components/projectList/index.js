@@ -10,7 +10,6 @@ class ProjectList extends React.Component {
     const { projectList } = this.props;
 
     return (
-
       <ProjectListStyled id="project-list">
         {projectList.map(project => (
           <Project
