@@ -1,38 +1,23 @@
 import React from 'react';
 import { Query } from "react-apollo";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { withRouter } from "react-router";
 
-import BackgroundImage from '../../components/backgroundImage';
 import Header from '../../components/header';
-import { AppearingText, NavigationWrapper } from '../../components/navigation';
 import Layout, { Wrapper } from '../../layouts/Default';
+// import Navigation from '../components/navigation';
 import Project from '../../components/project';
+import BackgroundImage from '../../components/backgroundImage';
 
 import GET_PROJECTS from './queries';
 import ProjectList from './styles';
 
-class Projects extends React.Component {
-  state = {
-    loaded: false
-  }
 
-  componentDidMount () {
-    this.setState({ loaded: true });
-  }
-
+class Home extends React.Component {
   render () {
-    const {
-      loaded
-    } = this.state;
-
     return (
       <Query query={GET_PROJECTS}>
         {({ loading, data }) => {
           const {
-            sections: {
-              projects
-            },
             pages: {
               projects: {
                 projectList
@@ -40,27 +25,10 @@ class Projects extends React.Component {
             }
           } = data;
 
-          return (
-            <Layout location={this.props.location} title={projects} className="dark">
+          return !loading && (
+            <Layout location={this.props.location} className="home">
               <Header />
               <Wrapper>
-                <NavigationWrapper>
-                  <TransitionGroup>
-                    {loaded && !loading && (
-                      <CSSTransition classNames="loaded" timeout={300}>
-                        <h1 className="title">
-                          <AppearingText>
-                            {projects.split('').map((char, i) => (
-                              <span key={`char-${i}`} className="text active">{char}</span>
-                            ))}
-                          </AppearingText>
-                        </h1>
-                      </CSSTransition>
-                    )}
-                  </TransitionGroup>
-                </NavigationWrapper>
-              </Wrapper>
-              <Wrapper className="reading">
                 <ProjectList id="project-list">
                   {projectList.map(project => (
                     <Project
@@ -82,11 +50,13 @@ class Projects extends React.Component {
                 </ProjectList>
               </Wrapper>
             </Layout>
-          );
+          )
         }}
       </Query>
     );
   }
 }
 
-export default withRouter(Projects);
+export default withRouter(Home);
+
+// <Navigation />
