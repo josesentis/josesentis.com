@@ -3,12 +3,28 @@ import { Query } from "react-apollo";
 import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import withLoader from '../../hocs/withLoader';
 import { toggleCursor } from '../cursor';
+import withLoader from '../../hocs/withLoader';
+import { Wrapper } from '../../layouts/Default';
 
 import routes from '../../utils/routes';
 import GET_SECTIONS from './queries';
 import NavigationWrapper, { AppearingText } from './styles';
+
+const NavLink = ({ to, className = '', children }) => (
+  <div>
+    <Link
+      to={to}
+      className={`title link ${className}`}
+      onMouseEnter={() => toggleCursor()}
+      onMouseLeave={() => toggleCursor()}
+    >
+      <AppearingText>
+        {children}
+      </AppearingText>
+    </Link>
+  </div>
+);
 
 class Navigation extends React.Component {
   componentWillUnmount () {
@@ -29,35 +45,24 @@ class Navigation extends React.Component {
 
           return (
             <NavigationWrapper className="navigation">
-              <TransitionGroup>
-                {loaded && !loading && (
-                  <CSSTransition classNames="loaded" timeout={300}>
-                    <div>
-                      <Link
-                        to={routes.projects}
-                        className={`title link`}
-                        onMouseEnter={() => toggleCursor()}
-                        onMouseLeave={() => toggleCursor()}
-                      >
-                        <AppearingText>
+              <Wrapper>
+                <div className="navigation-wrapper">
+                  <TransitionGroup>
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={300}>
+                        <NavLink to={routes.home}>
                           {projects.split('').map((char, i) => (
                             <span key={`char-${i}`} className="text">{char}</span>
                           ))}
-                        </AppearingText>
-                      </Link>
-                    </div>
-                  </CSSTransition>
-                )}
-                {loaded && !loading && (
-                  <CSSTransition classNames="loaded" timeout={500}>
-                    <div>
-                      <Link
-                        to={routes.playground}
-                        className="title link double-link double-link-mobile"
-                        onMouseEnter={() => toggleCursor()}
-                        onMouseLeave={() => toggleCursor()}
-                      >
-                        <AppearingText>
+                        </NavLink>
+                      </CSSTransition>
+                    )}
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={500}>
+                        <NavLink
+                          to={routes.playground}
+                          className="double-link double-link-mobile"
+                        >
                           {playground.split('<hr />').map((half, j) => (
                             <span>
                               {half.split('').map((char, i) => (
@@ -66,43 +71,34 @@ class Navigation extends React.Component {
                             </span>
                           )
                           )}
-                        </AppearingText>
-                      </Link>
-                      <Link
-                        to={routes.playground}
-                        className="title link double-link double-link-desktop"
-                        onMouseEnter={() => toggleCursor()}
-                        onMouseLeave={() => toggleCursor()}
-                      >
-                        <AppearingText>
+                        </NavLink>
+                      </CSSTransition>
+                    )}
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={500}>
+                        <NavLink
+                          to={routes.playground}
+                          className="double-link double-link-desktop"
+                        >
                           {playground.split('<hr />').map((half, j) => half.split('').map((char, i) => (
                             <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
                           ))
                           )}
-                        </AppearingText>
-                      </Link>
-                    </div>
-                  </CSSTransition>
-                )}
-                {loaded && !loading && (
-                  <CSSTransition classNames="loaded" timeout={700}>
-                    <div>
-                      <Link
-                        to={routes.about}
-                        className="title link"
-                        onMouseEnter={() => toggleCursor()}
-                        onMouseLeave={() => toggleCursor()}
-                      >
-                        <AppearingText>
+                        </NavLink>
+                      </CSSTransition>
+                    )}
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={700}>
+                        <NavLink to={routes.about}>
                           {about.split('').map((char, i) => (
                             <span key={`char-about-${i}`} className="text">{char}</span>
                           ))}
-                        </AppearingText>
-                      </Link>
-                    </div>
-                  </CSSTransition>
-                )}
-              </TransitionGroup>
+                        </NavLink>
+                      </CSSTransition>
+                    )}
+                  </TransitionGroup>
+                </div>
+              </Wrapper>
             </NavigationWrapper>
           );
         }}

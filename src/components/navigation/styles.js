@@ -15,8 +15,6 @@ const NavigationWrapper = styled.div`
   width: 100%;
   z-index: 10;
 
-  > div { width: 100%; }
-
   .title {
     color: ${colors.base100};
     margin-bottom: ${space(1)};
@@ -47,9 +45,6 @@ const NavigationWrapper = styled.div`
   `}
 
   ${media.min('desktop')`
-    position: relative;
-    z-index: 1;
-
     .title {
       margin-left: -18px;
 
@@ -57,21 +52,6 @@ const NavigationWrapper = styled.div`
     }
 
     .double-link-mobile { display: none; }
-  `}
-
-  // ${media.min('maxWidth')`
-  //   &.fixed { height: 185px; }
-  // `}
-
-  // ${media.min('bigScreens')`
-  //   &.fixed { height: 260px; }
-  // `}
-
-  ${media.between('desktop', 'desktopLarge')`
-    .home & {
-      justify-content: flex-end;
-      padding-bottom: ${space(2)};
-    }
   `}
 `;
 

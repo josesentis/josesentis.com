@@ -35,6 +35,9 @@ const HeaderStyled = styled.header`
     line-height: ${space(1.75)};
     padding: 0;
 
+    .non-touch &:hover {
+      color: ${colors.primary};
+    }
   }
 
   .header {
