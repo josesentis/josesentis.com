@@ -115,7 +115,6 @@ class Navigation extends React.Component {
                     <CSSTransition classNames="loaded" timeout={500}>
                       <NavLink
                         to={routes.playground}
-                        className=""
                         onMouseEnter={() => {
                           this.toggleLink('playground')
                           toggleCursor();
