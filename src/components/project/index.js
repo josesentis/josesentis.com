@@ -51,7 +51,7 @@ class Project extends React.PureComponent {
             </span>
             <span>{title}</span>
           </div>
-          <p className="p">{stack} - {year}</p>
+          <p className="p">{year} - {stack}</p>
         </h2>
       </ProjectStyled>
     );

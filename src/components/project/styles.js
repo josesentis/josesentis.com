@@ -12,6 +12,8 @@ const ProjectStyled = styled.a`
   &::after { display: none; }
 
   .title-wrapper {
+    line-height: 1;
+    margin-bottom: ${space(.25)};
     padding-left: ${space(1)};
     position: relative;
   }
@@ -29,7 +31,7 @@ const ProjectStyled = styled.a`
   .label {
     left: 0;
     position: absolute;
-    bottom: 12px;
+    bottom: 10px;
   }
 
   .p { opacity: .5; }
@@ -37,18 +39,17 @@ const ProjectStyled = styled.a`
   ${media.min('tablet')`
     padding-left: ${space(1.5)};
 
+    &:not(:first-child) { margin-top: ${space(2)}; }
+
     .title-wrapper {
-      margin-left: ${space(-1)};
+      margin-left: ${space(-1.5)};
       padding-left: ${space(1.5)};
     }
 
-    .label { bottom: 14px; }
-    .project__image { disply: none; }
+    .project__image { display: none !important; }
   `}
 
   ${media.min('desktop')`
-    .label { bottom: 16px; }
-
     .project__image {
       height: 50vh;
       width: 50vh;
