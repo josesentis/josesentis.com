@@ -11,7 +11,7 @@ import Layout, { Wrapper } from '../../layouts/Default';
 import withLoader from '../../hocs/withLoader';
 
 import DATA from '../../data/content.json';
-import GET_PROJECTS from '../home/queries';
+import GET_HOME_DATA from '../home/queries';
 import ProjectDetail from './styles';
 
 class Project extends React.Component {
@@ -19,12 +19,9 @@ class Project extends React.Component {
     const { loaded, location: { pathname } } = this.props;
 
     return (
-      <Query query={GET_PROJECTS}>
+      <Query query={GET_HOME_DATA}>
         {({ loading, data }) => {
           const {
-            sections: {
-              projects
-            },
             pages: {
               projects: {
                 projectList
@@ -41,19 +38,6 @@ class Project extends React.Component {
               className="dark"
             >
               <Header />
-              <Wrapper>
-                <NavigationWrapper>
-                  <TransitionGroup>
-                    {loaded && !loading && (
-                      <CSSTransition classNames="loaded" timeout={300}>
-                        <h1 className="title">
-                          <AppearingText><span className="text active">{projects}</span></AppearingText>
-                        </h1>
-                      </CSSTransition>
-                    )}
-                  </TransitionGroup>
-                </NavigationWrapper>
-              </Wrapper>
               <ProjectDetail>
                 <Wrapper>
                   <div className="background-wrapper">
