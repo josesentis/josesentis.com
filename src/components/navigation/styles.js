@@ -5,10 +5,7 @@ import { space } from '../../utils/mixins';
 import { colors } from '../../utils/settings';
 
 const NavigationWrapper = styled.div`
-  align-items: center;
   background-color: ${colors.base500};
-  display: flex;
-  justify-content: center;
   height: 100%;
   position: fixed;
   width: 100%;
@@ -25,12 +22,17 @@ const NavigationWrapper = styled.div`
     overflow-y: auto;
     padding-bottom: ${space(1.5)};
     padding-top: ${space(5)};
+    position: static;
   }
 
   .social a { color: ${colors.base100}; }
   .loaded-enter-done:last-child .title { margin-bottom: 0; }
 
   ${media.max('desktop')`
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+
     .double-link {
       line-height: 1;
 
@@ -48,8 +50,6 @@ const NavigationWrapper = styled.div`
   `}
 
   ${media.min('tablet')`
-    align-items: flex-end;
-
     .title { margin-left: -12px; }
 
     .navigation-wrapper {
@@ -66,6 +66,20 @@ const NavigationWrapper = styled.div`
     }
 
     .double-link-mobile { display: none; }
+  `}
+
+  ${media.between('desktop', 'desktopLarge')`
+    .navigation-wrapper { padding-bottom: 0; }
+
+    .social {
+      bottom: ${space(2)};
+      flex-direction: row;
+      margin-top: 0;
+      position: absolute;
+      right: ${space(2)};
+
+      a { margin: 0 0 0 ${space()}; }
+    }
   `}
 `;
 
