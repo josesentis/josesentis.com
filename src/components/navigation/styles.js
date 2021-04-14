@@ -20,12 +20,6 @@ const NavigationWrapper = styled.div`
     margin-left: -7px;
   }
 
-  .navigation-wrapper {
-    align-items: flex-end;
-    display: flex;
-    height: 100%;
-  }
-
   .loaded-enter-done:last-child .title { margin-bottom: 0; }
 
   ${media.max('desktop')`

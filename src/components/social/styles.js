@@ -10,6 +10,7 @@ const SocialStyled = styled.div`
   margin-top: ${space(2)};
 
   a {
+    color: inherit;
     margin-bottom: ${space()};
 
     &:last-child { margin-bottom: 0; }
