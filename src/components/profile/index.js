@@ -20,12 +20,12 @@ class Profile extends React.Component {
     this.image = document.getElementById('image');
 
     this.triggerHover();
-    this.mainTag.addEventListener('scroll', this.onScroll);
+    window.addEventListener('scroll', this.onScroll);
   }
 
   componentWillUnmount () {
     this.removeHover();
-    this.mainTag.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
   }
 
   onScroll = () => {
