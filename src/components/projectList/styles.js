@@ -51,12 +51,8 @@ const ProjectListStyled = styled.div`
     }
   `}
 
-  ${media.min('tablet')`
-    padding: ${space(3)} 0;
-  `}
-
   ${media.min('desktop')`
-    padding: ${space(4)} 0;
+    padding: ${space(2)} 0;
 
     .project-image-animation {
       height: 60vh;

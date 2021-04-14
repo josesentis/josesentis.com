@@ -8,14 +8,15 @@ const NavigationWrapper = styled.div`
   &.navigation {
     background-color: ${colors.base500};
     height: 100%;
+    left: 0;
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 10;
   }
 
   .title {
     color: ${colors.base100};
-    padding: ${space(0.5)} 0;
     margin-left: -4px;
   }
 
@@ -59,16 +60,13 @@ const NavigationWrapper = styled.div`
     .title { margin-left: -12px; }
 
     .navigation-wrapper {
-      padding-bottom: ${space(3)};
-      padding-top: ${space(4.5)};
+      padding-bottom: ${space(2)};
+      padding-top: ${space(4)};
     }
   `}
 
   ${media.min('desktop')`
-    .title {
-      margin-left: -15px;
-    }
-
+    .title { margin-left: -15px; }
     .double-link-mobile { display: none; }
 
     .navigation-wrapper {

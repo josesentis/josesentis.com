@@ -39,10 +39,7 @@ const typographyStyles = `
     text-decoration: none;
 
     &::after { display: none; }
-
-    .non-touch &:hover {
-      background-color: transparent;
-    }
+    &:hover { background-color: transparent; }
   }
 
   &::selection {
@@ -61,6 +58,7 @@ const typographyStyles = `
 
     @media (min-width: 1024px) {
       font-size: 175px;
+      line-height: 1.15;
     }
   }
 
