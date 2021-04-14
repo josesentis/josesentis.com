@@ -31,7 +31,7 @@ class Home extends React.Component {
           } = data;
 
           return !loading && (
-            <Layout location={this.props.location}>
+            <Layout location={this.props.location} className="home">
               <Header />
               <Wrapper>
                 <Fold>

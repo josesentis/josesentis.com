@@ -67,8 +67,6 @@ const NavigationWrapper = styled.div`
   ${media.min('desktop')`
     .title {
       margin-left: -15px;
-
-      .home & { margin-bottom: ${space()}; }
     }
 
     .double-link-mobile { display: none; }

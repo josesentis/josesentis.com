@@ -27,6 +27,10 @@ const LoaderWrapper = styled.div`
     .title { font-size: 78px; }
   `}
 
+  ${media.min('desktop')`
+    .title { font-size: 175px; }
+  `}
+
   .text {
     transition: transform 1s cubic-bezier(.215, .61, .355, 1) !important;
   }
