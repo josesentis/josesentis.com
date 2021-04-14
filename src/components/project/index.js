@@ -27,51 +27,31 @@ class Project extends React.PureComponent {
     } = this.props;
     const title = this.props.project.title || slug;
 
-    const content = (
-      <>
-        <div className="title-wrapper">
-          <span className="label">
-            {order.toString().length === 1 ? '0' : ''}
-            {order}.
-          </span>
-          <span>
-            {title}
-          </span>
-        </div>
-        <p className="p">{stack} - {year}</p>
-      </>
-    );
-
     return (
       <ProjectStyled
         className={`project`}
         onMouseEnter={() => {
-          // this._projectImage.parentNode.classList.add('is-hover');
           this._projectImage.classList.add('is-active');
           toggleCursor();
         }}
         onMouseLeave={() => {
-          toggleCursor();
-          this._projectImage.parentNode.classList.remove('is-hover');
           this._projectImage.classList.remove('is-active');
+          toggleCursor();
         }}
+        href={external ? externalLink : `projects/${slug}`}
+        target={external ? '_blank' : '_self'}
+        rel={external ? 'noopener noreferrer' : ''}
       >
         <BackgroundImage src={image} className="project__image" />
         <h2 className="project__title title2">
-          {external ? (
-            <a
-              className="external project__touch-title"
-              href={externalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {content}
-            </a>
-          ) : (
-            <Link className="project__touch-title" to={`projects/${slug}`} onClick={e => e.stopPropagation()}>
-              {content}
-            </Link>
-          )}
+          <div className="title-wrapper">
+            <span className="label">
+              {order.toString().length === 1 ? '0' : ''}
+              {order}.
+            </span>
+            <span>{title}</span>
+          </div>
+          <p className="p">{stack} - {year}</p>
         </h2>
       </ProjectStyled>
     );

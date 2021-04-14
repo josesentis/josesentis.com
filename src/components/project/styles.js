@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
 
-const ProjectStyled = styled.div`
+const ProjectStyled = styled.a`
   position: relative;
   z-index: 1;
+  width: 100%;
 
-  &:not(:first-child) { padding-top: ${space()}; }
-  &:not(:last-child) { padding-bottom: ${space()}; }
+  &::after { display: none; }
+
+  &:not(:first-child) { margin-top: ${space(3)}; }
 
   .title-wrapper {
     padding-left: ${space(1)};
