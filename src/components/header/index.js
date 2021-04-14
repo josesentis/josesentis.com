@@ -34,7 +34,7 @@ class Header extends React.Component {
 
           return (
             <>
-              <HeaderStyled>
+              <HeaderStyled className={`${showNavigation ? 'nav-open' : ''}`}>
                 <Wrapper>
                   <TransitionGroup component={null}>
                     {loaded && !loading && (
@@ -56,7 +56,10 @@ class Header extends React.Component {
                           <button
                             className="nav-toggle"
                             onClick={() => { this.setState({ showNavigation: !showNavigation }); }}
-                          >menu</button>
+                          >
+                            {showNavigation && 'close'}
+                            {!showNavigation && 'menu'}
+                          </button>
                         </div>
                       </CSSTransition>
                     )}

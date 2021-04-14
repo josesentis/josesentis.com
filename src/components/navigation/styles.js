@@ -8,7 +8,7 @@ const NavigationWrapper = styled.div`
   align-items: flex-end;
   background-color: ${colors.base500};
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   min-height: 100%;
   position: fixed;
   width: 100%;

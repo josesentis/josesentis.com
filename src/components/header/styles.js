@@ -5,18 +5,24 @@ import { space, pixelate } from '../../utils/mixins';
 import { colors, typography } from '../../utils/settings';
 
 const HeaderStyled = styled.header`
+  color: ${colors.base500};
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   will-change: transform;
-  z-index: 9;
+  z-index: 12;
 
   .dark & { background-color: ${colors.base100}; }
 
+  &.nav-open {
+    background-color: transparent;
+    color: ${colors.base100};
+  }
+
   .header-wrapper {
     align-items: center;
-    color: ${colors.base500};
+    color: inherit;
     display: flex;
     justify-content: space-between;
     padding: ${space()} 0;
@@ -30,6 +36,7 @@ const HeaderStyled = styled.header`
   }
 
   .nav-toggle {
+    color: inherit;
     font-family: ${typography.bodyFontFamily.join(', ')};
     font-size: ${pixelate(typography.bigFontSize)};
     line-height: ${space(1.75)};
@@ -55,7 +62,7 @@ const HeaderStyled = styled.header`
 
     a {
       background-color: transparent !important;
-      color: ${colors.base500} !important;
+      color: inherit !important;
       text-decoration: none;
       &::after { display: none; }
 
