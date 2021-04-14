@@ -5,11 +5,13 @@ import { space } from '../../utils/mixins';
 import { colors } from '../../utils/settings';
 
 const NavigationWrapper = styled.div`
-  background-color: ${colors.base500};
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
+  &.navigation {
+    background-color: ${colors.base500};
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
 
   .title {
     color: ${colors.base100};
@@ -25,15 +27,17 @@ const NavigationWrapper = styled.div`
     position: static;
   }
 
-  .navigation-links .hide { opacity: 0; }
+  .navigation-links .loaded-enter-done .hide { opacity: 0; }
 
   .social a { color: ${colors.base100}; }
   .loaded-enter-done:last-child .title { padding-bottom: 0; }
 
   ${media.max('desktop')`
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
+    &.navigation {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+    }
 
     .double-link {
       line-height: 1;

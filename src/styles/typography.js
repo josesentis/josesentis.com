@@ -65,7 +65,7 @@ const typographyStyles = `
   }
 
   .title2 {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 1.4;
 
     @media (min-width: 768px) {

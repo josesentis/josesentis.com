@@ -48,10 +48,12 @@ const LayoutStyled = styled.div`
     }
   }
 
-  &.not-found .title {
-    ${media.max('desktop')`
-      font-size: 18vw;
-    `}
+  &:not(.home) main {
+    padding: ${space(5.5)} 0 ${space(1.5)};
+
+    ${media.min('tablet')`
+      padding: ${space(4.5)} 0 ${space(3)};
+    `};
   }
 
   &.headerless main { padding-top: 0 !important; }
