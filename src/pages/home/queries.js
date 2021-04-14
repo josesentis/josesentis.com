@@ -1,12 +1,13 @@
 import gql from 'graphql-tag';
 
-const GET_PROJECTS = gql`
+const GET_HOME_DATA = gql`
   {
     job @client
     name @client
     pages @client {
       projects {
         projectList {
+          year,
           title,
           stack
           external
@@ -14,11 +15,10 @@ const GET_PROJECTS = gql`
           slug
           image
           order
-          year
         }
       }
     }
   }
 `;
 
-export default GET_PROJECTS;
+export default GET_HOME_DATA;

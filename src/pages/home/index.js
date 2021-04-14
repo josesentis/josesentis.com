@@ -10,7 +10,7 @@ import ProjectList from '../../components/projectList';
 import withLoader from '../../hocs/withLoader';
 import Layout, { Wrapper } from '../../layouts/Default';
 
-import GET_PROJECTS from './queries';
+import GET_HOME_DATA from './queries';
 import { Fold } from './styles';
 
 class Home extends React.Component {
@@ -19,7 +19,7 @@ class Home extends React.Component {
     const currentYear = new Date().getFullYear().toString();
 
     return (
-      <Query query={GET_PROJECTS}>
+      <Query query={GET_HOME_DATA}>
         {({ loading, data }) => {
           const {
             job,
@@ -31,7 +31,7 @@ class Home extends React.Component {
             }
           } = data;
 
-          return (
+          return !loading && (
             <Layout location={this.props.location}>
               <Header />
               <Wrapper>
