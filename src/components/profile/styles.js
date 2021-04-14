@@ -8,18 +8,18 @@ const ProfileWrapper = styled.div`
   .thanks { margin-top: ${space(2)}; }
   .content > * { max-width: 680px; }
 
-  .social {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    margin-top: ${space(2)};
+  // .social {
+  //   align-items: flex-start;
+  //   display: flex;
+  //   flex-direction: column;
+  //   margin-top: ${space(2)};
 
-    a {
-      margin-bottom: ${space()};
+  //   a {
+  //     margin-bottom: ${space()};
 
-      &:last-child { margin-bottom: 0; }
-    }
-  }
+  //     &:last-child { margin-bottom: 0; }
+  //   }
+  // }
 
   .say-hi {
     align-items: center;
@@ -64,7 +64,7 @@ const ProfileWrapper = styled.div`
 
   ${media.between('tablet', 'desktop')`
     .content { margin-top: ${space(2)}; }
-    .social { align-items: flex-end; }
+    // .social { align-items: flex-end; }
     .thanks { text-align: right; }
   `}
 

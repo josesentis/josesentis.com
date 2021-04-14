@@ -4,6 +4,7 @@ import forEach from '@runroom/purejs/lib/forEach';
 import withQuery from '../../hocs/withQuery';
 import BackgroundImage from '../backgroundImage';
 import { toggleCursor } from '../cursor';
+import Social from '../social';
 
 import ProfileWrapper from './styles';
 import GET_PROFILE from './queries';
@@ -13,7 +14,7 @@ class Profile extends React.Component {
   content = null;
   image = null;
 
-  componentDidMount() {
+  componentDidMount () {
     this.mainTag = document.getElementsByTagName('main')[0];
     this.content = document.getElementById('content');
     this.image = document.getElementById('image');
@@ -22,7 +23,7 @@ class Profile extends React.Component {
     this.mainTag.addEventListener('scroll', this.onScroll);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.removeHover();
     this.mainTag.removeEventListener('scroll', this.onScroll);
   }
@@ -52,7 +53,7 @@ class Profile extends React.Component {
     });
   }
 
-  render() {
+  render () {
     const {
       social: {
         github,
@@ -81,36 +82,12 @@ class Profile extends React.Component {
                   __html: content
                 }}
               />
-              <div className="social">
-                <a
-                  href={github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Linkedin
-                </a>
-                <a
-                  href={instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-                <a
-                  href={twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Twitter
-                </a>
-              </div>
+              <Social
+                twitter={twitter}
+                github={github}
+                linkedin={linkedin}
+                instagram={instagram}
+              />
               <p className="thanks">
                 Designed by&nbsp;
                 <a

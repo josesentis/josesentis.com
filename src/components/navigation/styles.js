@@ -5,7 +5,7 @@ import { space } from '../../utils/mixins';
 import { colors } from '../../utils/settings';
 
 const NavigationWrapper = styled.div`
-  align-items: flex-end;
+  align-items: center;
   background-color: ${colors.base500};
   display: flex;
   justify-content: flex-end;
@@ -46,6 +46,8 @@ const NavigationWrapper = styled.div`
   `}
 
   ${media.min('tablet')`
+    align-items: flex-end;
+
     .title { margin-left: -15px; }
   `}
 
