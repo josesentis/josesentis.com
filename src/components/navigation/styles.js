@@ -13,7 +13,7 @@ const NavigationWrapper = styled.div`
 
   .title {
     color: ${colors.base100};
-    margin-bottom: ${space(1)};
+    padding: ${space(0.5)} 0;
     margin-left: -4px;
   }
 
@@ -25,8 +25,10 @@ const NavigationWrapper = styled.div`
     position: static;
   }
 
+  .navigation-links .hide { opacity: 0; }
+
   .social a { color: ${colors.base100}; }
-  .loaded-enter-done:last-child .title { margin-bottom: 0; }
+  .loaded-enter-done:last-child .title { padding-bottom: 0; }
 
   ${media.max('desktop')`
     align-items: center;

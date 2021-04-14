@@ -12,13 +12,12 @@ import routes from '../../utils/routes';
 import GET_SECTIONS from './queries';
 import NavigationWrapper, { AppearingText } from './styles';
 
-const NavLink = ({ to, className = '', children }) => (
+const NavLink = ({ to, className = '', children, ...props }) => (
   <div>
     <Link
       to={to}
       className={`title link ${className}`}
-      onMouseEnter={() => toggleCursor()}
-      onMouseLeave={() => toggleCursor()}
+      {...props}
     >
       <AppearingText>
         {children}
@@ -28,12 +27,22 @@ const NavLink = ({ to, className = '', children }) => (
 );
 
 class Navigation extends React.Component {
+  state = {
+    linkName: false
+  }
+
   componentWillUnmount () {
     toggleCursor('', true);
   }
 
+  toggleLink = linkName => {
+    if (linkName) this.setState({ linkName });
+    else this.setState({ linkName: false });
+  }
+
   render () {
     const { loaded } = this.props;
+    const { linkName } = this.state;
 
     return (
       <Query query={GET_SECTIONS}>
@@ -59,7 +68,18 @@ class Navigation extends React.Component {
                 <TransitionGroup className="navigation-links">
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={300}>
-                      <NavLink to={routes.home}>
+                      <NavLink
+                        to={routes.home}
+                        onMouseEnter={() => {
+                          this.toggleLink('projects');
+                          toggleCursor();
+                        }}
+                        onMouseLeave={() => {
+                          this.toggleLink(false);
+                          toggleCursor();
+                        }}
+                        className={!linkName || linkName === 'projects' ? '' : 'hide'}
+                      >
                         {projects.split('').map((char, i) => (
                           <span key={`char-${i}`} className="text">{char}</span>
                         ))}
@@ -70,7 +90,15 @@ class Navigation extends React.Component {
                     <CSSTransition classNames="loaded" timeout={500}>
                       <NavLink
                         to={routes.playground}
-                        className="double-link double-link-mobile"
+                        className={`double-link double-link-mobile ${!linkName || linkName === 'playground' ? '' : 'hide'}`}
+                        onMouseEnter={() => {
+                          this.toggleLink('playground')
+                          toggleCursor();
+                        }}
+                        onMouseLeave={() => {
+                          this.toggleLink(false);
+                          toggleCursor();
+                        }}
                       >
                         {playground.split('<hr />').map((half, j) => (
                           <span>
@@ -87,7 +115,16 @@ class Navigation extends React.Component {
                     <CSSTransition classNames="loaded" timeout={500}>
                       <NavLink
                         to={routes.playground}
-                        className="double-link double-link-desktop"
+                        className=""
+                        onMouseEnter={() => {
+                          this.toggleLink('playground')
+                          toggleCursor();
+                        }}
+                        onMouseLeave={() => {
+                          this.toggleLink(false);
+                          toggleCursor();
+                        }}
+                        className={`double-link double-link-desktop ${!linkName || linkName === 'playground' ? '' : 'hide'}`}
                       >
                         {playground.split('<hr />').map((half, j) => half.split('').map((char, i) => (
                           <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
@@ -98,7 +135,18 @@ class Navigation extends React.Component {
                   )}
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={700}>
-                      <NavLink to={routes.about}>
+                      <NavLink
+                        to={routes.about}
+                        onMouseEnter={() => {
+                          this.toggleLink('about')
+                          toggleCursor();
+                        }}
+                        onMouseLeave={() => {
+                          this.toggleLink(false);
+                          toggleCursor();
+                        }}
+                        className={!linkName || linkName === 'about' ? '' : 'hide'}
+                      >
                         {about.split('').map((char, i) => (
                           <span key={`char-about-${i}`} className="text">{char}</span>
                         ))}
