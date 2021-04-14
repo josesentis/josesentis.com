@@ -8,16 +8,13 @@ const ProjectStyled = styled.a`
   z-index: 1;
   width: 100%;
 
-  &::after { display: none; }
-
   &:not(:first-child) { margin-top: ${space(3)}; }
+  &::after { display: none; }
 
   .title-wrapper {
     padding-left: ${space(1)};
     position: relative;
   }
-
-  .p { opacity: .5; }
 
   .project__image {
     margin: 0 0 ${space()};
@@ -35,34 +32,18 @@ const ProjectStyled = styled.a`
     bottom: 12px;
   }
 
+  .p { opacity: .5; }
+
   ${media.min('tablet')`
     padding-left: ${space(1.5)};
 
-    .project__title {
-      margin-bottom: ${space(1.5)};
-
-      .title-wrapper {
-        margin-left: ${space(-1.5)};
-        padding-left: ${space(1.5)};
-      }
-    }
-
     .title-wrapper {
       margin-left: ${space(-1)};
+      padding-left: ${space(1.5)};
     }
 
     .label { bottom: 14px; }
-
-    .project__image {
-      position: fixed !important;
-      right: 0;
-      height: 40vh;
-      width: 40vh;
-      top: calc(50% - 20vh);
-      z-index: 0;
-    }
-
-    .non-touch & .project__image { display: none; }
+    .project__image { disply: none; }
   `}
 
   ${media.min('desktop')`

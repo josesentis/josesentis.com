@@ -29,7 +29,7 @@ class Project extends React.PureComponent {
 
     return (
       <ProjectStyled
-        className={`project`}
+        className="project"
         onMouseEnter={() => {
           this._projectImage.classList.add('is-active');
           toggleCursor();

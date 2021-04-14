@@ -13,13 +13,13 @@ const ProjectListStyled = styled.div`
 
     .project-image-animation {
       display: block;
-      height: 45vh;
+      height: 55vh;
       overflow: hidden;
       position: fixed !important;
       pointer-events: none;
       right: 0;
-      top: calc(50% - 20vh);
-      width: 40vh;
+      top: calc(50% - 25vh);
+      width: 50vh;
       z-index: 0;
     }
 
@@ -43,9 +43,7 @@ const ProjectListStyled = styled.div`
         transform: translate(-50%, -50%) scale(1.2);
       }
     }
-  `}
 
-  ${media.min('desktop')`
     .project-image-animation {
       height: 55vh;
       width: 50vh;
