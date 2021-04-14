@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { toggleCursor } from '../cursor';
+
 import SocialStyled from './styles';
 
 const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
@@ -8,6 +10,8 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       href={github}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={() => toggleCursor()}
+      onMouseLeave={() => toggleCursor()}
     >
       GitHub
     </a>
@@ -15,6 +19,8 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       href={linkedin}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={() => toggleCursor()}
+      onMouseLeave={() => toggleCursor()}
     >
       Linkedin
     </a>
@@ -22,6 +28,8 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       href={instagram}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={() => toggleCursor()}
+      onMouseLeave={() => toggleCursor()}
     >
       Instagram
     </a>
@@ -29,12 +37,16 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       href={twitter}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={() => toggleCursor()}
+      onMouseLeave={() => toggleCursor()}
     >
       Twitter
     </a>
     {email && (
       <a
         href={`mailto:${email}`}
+        onMouseEnter={() => toggleCursor()}
+        onMouseLeave={() => toggleCursor()}
       >
         Say Hi!
       </a>

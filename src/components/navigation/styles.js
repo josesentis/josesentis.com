@@ -66,10 +66,11 @@ const NavigationWrapper = styled.div`
     }
 
     .double-link-mobile { display: none; }
-  `}
 
-  ${media.between('desktop', 'desktopLarge')`
-    .navigation-wrapper { padding-bottom: 0; }
+    .navigation-wrapper {
+      align-items: center;
+      display: flex;
+    }
 
     .social {
       bottom: ${space(2)};
