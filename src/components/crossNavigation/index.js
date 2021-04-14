@@ -5,7 +5,7 @@ import { toggleCursor } from '../cursor';
 import CrossNavigationStyled from './styles';
 
 class CrossNavigation extends React.Component {
-  render() {
+  render () {
     const { current, projectList } = this.props;
 
 
@@ -38,15 +38,15 @@ class CrossNavigation extends React.Component {
                   {content}
                 </a>
               ) : (
-                  <Link
-                    to={`/${slug}`}
-                    className={`link ${slug === current ? 'active' : ''}`}
-                    onMouseEnter={() => toggleCursor()}
-                    onMouseLeave={() => toggleCursor()}
-                  >
-                    {content}
-                  </Link>
-                )}
+                <Link
+                  to={`/projects/${slug}`}
+                  className={`link ${slug === current ? 'active' : ''}`}
+                  onMouseEnter={() => toggleCursor()}
+                  onMouseLeave={() => toggleCursor()}
+                >
+                  {content}
+                </Link>
+              )}
             </li>
           );
         })}
