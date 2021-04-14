@@ -48,7 +48,8 @@ class Navigation extends React.Component {
               github,
               linkedin,
               instagram,
-              twitter
+              twitter,
+              email
             }
           } = data;
 
@@ -110,6 +111,7 @@ class Navigation extends React.Component {
                   github={github}
                   linkedin={linkedin}
                   instagram={instagram}
+                  email={email}
                 />
               </Wrapper>
             </NavigationWrapper>

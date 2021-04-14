@@ -2,7 +2,7 @@ import React from 'react';
 
 import SocialStyled from './styles';
 
-const Social = ({ github, twitter, instagram, linkedin }) => (
+const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
   <SocialStyled className="social">
     <a
       href={github}
@@ -10,28 +10,35 @@ const Social = ({ github, twitter, instagram, linkedin }) => (
       rel="noopener noreferrer"
     >
       GitHub
-  </a>
+    </a>
     <a
       href={linkedin}
       target="_blank"
       rel="noopener noreferrer"
     >
       Linkedin
-  </a>
+    </a>
     <a
       href={instagram}
       target="_blank"
       rel="noopener noreferrer"
     >
       Instagram
-  </a>
+    </a>
     <a
       href={twitter}
       target="_blank"
       rel="noopener noreferrer"
     >
       Twitter
-  </a>
+    </a>
+    {email && (
+      <a
+        href={`mailto:${email}`}
+      >
+        Say Hi!
+      </a>
+    )}
   </SocialStyled>
 );
 

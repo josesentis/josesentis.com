@@ -7,6 +7,7 @@ const GET_SECTIONS = gql`
       linkedin
       instagram
       twitter
+      email
     }
     sections @client {
       playground

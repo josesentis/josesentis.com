@@ -8,8 +8,8 @@ const NavigationWrapper = styled.div`
   align-items: center;
   background-color: ${colors.base500};
   display: flex;
-  justify-content: flex-end;
-  min-height: 100%;
+  justify-content: center;
+  height: 100%;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -17,9 +17,17 @@ const NavigationWrapper = styled.div`
   .title {
     color: ${colors.base100};
     margin-bottom: ${space(1)};
-    margin-left: -7px;
+    margin-left: -4px;
   }
 
+  .navigation-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: ${space(1.5)};
+    padding-top: ${space(5)};
+  }
+
+  .social a { color: ${colors.base100}; }
   .loaded-enter-done:last-child .title { margin-bottom: 0; }
 
   ${media.max('desktop')`
@@ -42,12 +50,17 @@ const NavigationWrapper = styled.div`
   ${media.min('tablet')`
     align-items: flex-end;
 
-    .title { margin-left: -15px; }
+    .title { margin-left: -12px; }
+
+    .navigation-wrapper {
+      padding-bottom: ${space(3)};
+      padding-top: ${space(4.5)};
+    }
   `}
 
   ${media.min('desktop')`
     .title {
-      margin-left: -18px;
+      margin-left: -15px;
 
       .home & { margin-bottom: ${space()}; }
     }

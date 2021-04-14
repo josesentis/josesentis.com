@@ -19,24 +19,13 @@ const LoaderWrapper = styled.div`
 
   .title { color: ${colors.white}; }
 
-  // ${media.max('phone')`
-  //   .title { font-size: 50px !important; }
-  // `}
+  ${media.max('phone')`
+    .title { font-size: 50px !important; }
+  `}
 
-  // ${media.min('phone')`
-  //   .title { font-size: 78px; }
-  // `}
-
-  // ${media.min('tablet')`
-  //   .title { font-size: 125px; }
-  // `}
-
-  // ${media.min('desktop')`
-  //   .title {
-  //     font-size: 165px;
-  //     text-align: center;
-  //   }
-  // `}
+  ${media.min('phone')`
+    .title { font-size: 78px; }
+  `}
 
   .text {
     transition: transform 1s cubic-bezier(.215, .61, .355, 1) !important;
