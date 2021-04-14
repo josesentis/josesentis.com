@@ -45,8 +45,8 @@ class Navigation extends React.Component {
 
           return (
             <NavigationWrapper className="navigation">
-              <Wrapper>
-                <div className="navigation-wrapper">
+              <div className="navigation-wrapper">
+                <Wrapper>
                   <TransitionGroup>
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={300}>
@@ -97,8 +97,8 @@ class Navigation extends React.Component {
                       </CSSTransition>
                     )}
                   </TransitionGroup>
-                </div>
-              </Wrapper>
+                </Wrapper>
+              </div>
             </NavigationWrapper>
           );
         }}

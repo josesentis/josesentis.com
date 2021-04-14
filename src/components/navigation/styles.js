@@ -5,12 +5,11 @@ import { space } from '../../utils/mixins';
 import { colors } from '../../utils/settings';
 
 const NavigationWrapper = styled.div`
-  align-items: flex-start;
+  align-items: flex-end;
   background-color: ${colors.base500};
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  min-height: 100%;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -19,6 +18,12 @@ const NavigationWrapper = styled.div`
     color: ${colors.base100};
     margin-bottom: ${space(1)};
     margin-left: -7px;
+  }
+
+  .navigation-wrapper {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
   }
 
   .loaded-enter-done:last-child .title { margin-bottom: 0; }
