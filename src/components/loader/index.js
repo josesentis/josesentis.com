@@ -6,23 +6,23 @@ import LoaderWrapper from './styles';
 import { AppearingText } from '../navigation';
 
 class Home extends React.Component {
-  render() {
+  render () {
     return (
       <LoaderWrapper className="playground">
         <Noise />
-        <div>
+        <div className="title">
           <AppearingText>
-            <span className="text title">j</span>
-            <span className="text title">o</span>
-            <span className="text title">s</span>
-            <span className="text title">e</span>
-            <span className="text title">&nbsp;</span>
-            <span className="text title">s</span>
-            <span className="text title">e</span>
-            <span className="text title">n</span>
-            <span className="text title">t</span>
-            <span className="text title">i</span>
-            <span className="text title">s</span>
+            <span className="text">j</span>
+            <span className="text">o</span>
+            <span className="text">s</span>
+            <span className="text">e</span>
+            <span className="text">&nbsp;</span>
+            <span className="text">s</span>
+            <span className="text">e</span>
+            <span className="text">n</span>
+            <span className="text">t</span>
+            <span className="text">i</span>
+            <span className="text">s</span>
           </AppearingText>
         </div>
       </LoaderWrapper>

@@ -35,7 +35,7 @@ class Home extends React.Component {
             <Layout location={this.props.location}>
               <Header />
               <Wrapper>
-                {/*<Fold>
+                <Fold>
                   <TransitionGroup>
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={400}>
@@ -61,7 +61,7 @@ class Home extends React.Component {
                       </CSSTransition>
                     )}
                   </TransitionGroup>
-                    </Fold>*/}
+                </Fold>
                 <ProjectList projectList={projectList} />
               </Wrapper>
             </Layout>
