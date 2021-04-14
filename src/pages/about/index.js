@@ -12,7 +12,7 @@ import withLoader from '../../hocs/withLoader';
 import GET_ABOUT from './queries';
 
 class About extends React.Component {
-  render() {
+  render () {
     const { loaded } = this.props;
 
     return (
@@ -33,7 +33,7 @@ class About extends React.Component {
                         <h1 className="title">
                           <AppearingText>
                             {about.split('').map((char, i) => (
-                              <span key={`char-${i}`} className="text active">{char}</span>
+                              <span key={`char-${i}`} className="text">{char}</span>
                             ))}
                           </AppearingText>
                         </h1>

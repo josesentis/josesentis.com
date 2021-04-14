@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from "react-apollo";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { toggleCursor } from '../cursor';
@@ -12,17 +12,19 @@ import routes from '../../utils/routes';
 import GET_SECTIONS from './queries';
 import NavigationWrapper, { AppearingText } from './styles';
 
-const NavLink = ({ to, className = '', children, ...props }) => (
+const CustomNavLink = ({ to, className = '', children, ...props }) => (
   <div>
-    <Link
+    <NavLink
       to={to}
       className={`title link ${className}`}
+      activeClassName="active"
+      exact
       {...props}
     >
       <AppearingText>
         {children}
       </AppearingText>
-    </Link>
+    </NavLink>
   </div>
 );
 
@@ -68,7 +70,7 @@ class Navigation extends React.Component {
                 <TransitionGroup className="navigation-links">
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={300}>
-                      <NavLink
+                      <CustomNavLink
                         to={routes.home}
                         onMouseEnter={() => {
                           this.toggleLink('projects');
@@ -83,12 +85,12 @@ class Navigation extends React.Component {
                         {projects.split('').map((char, i) => (
                           <span key={`char-${i}`} className="text">{char}</span>
                         ))}
-                      </NavLink>
+                      </CustomNavLink>
                     </CSSTransition>
                   )}
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={500}>
-                      <NavLink
+                      <CustomNavLink
                         to={routes.playground}
                         className={`double-link double-link-mobile ${!linkName || linkName === 'playground' ? '' : 'hide'}`}
                         onMouseEnter={() => {
@@ -108,12 +110,12 @@ class Navigation extends React.Component {
                           </span>
                         )
                         )}
-                      </NavLink>
+                      </CustomNavLink>
                     </CSSTransition>
                   )}
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={500}>
-                      <NavLink
+                      <CustomNavLink
                         to={routes.playground}
                         onMouseEnter={() => {
                           this.toggleLink('playground')
@@ -129,12 +131,12 @@ class Navigation extends React.Component {
                           <span key={`char-playground-${i}-${j}-desktop`} className="text">{char}</span>
                         ))
                         )}
-                      </NavLink>
+                      </CustomNavLink>
                     </CSSTransition>
                   )}
                   {loaded && !loading && (
                     <CSSTransition classNames="loaded" timeout={700}>
-                      <NavLink
+                      <CustomNavLink
                         to={routes.about}
                         onMouseEnter={() => {
                           this.toggleLink('about')
@@ -149,7 +151,7 @@ class Navigation extends React.Component {
                         {about.split('').map((char, i) => (
                           <span key={`char-about-${i}`} className="text">{char}</span>
                         ))}
-                      </NavLink>
+                      </CustomNavLink>
                     </CSSTransition>
                   )}
                 </TransitionGroup>

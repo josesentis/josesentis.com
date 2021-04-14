@@ -13,11 +13,16 @@ const NavigationWrapper = styled.div`
     top: 0;
     width: 100%;
     z-index: 10;
-  }
 
-  .title {
-    color: ${colors.base100};
-    margin-left: -4px;
+    .title {
+      background-color: transparent !important;
+      color: ${colors.base100};
+      margin-left: -4px;
+    }
+
+    .link.active {
+      color: ${colors.primary};
+    }
   }
 
   .navigation-wrapper {
