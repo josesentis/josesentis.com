@@ -3,46 +3,6 @@ import { pixelate, space } from '../utils/mixins';
 import { colors, typography } from '../utils/settings';
 
 const typographyStyles = `
-  .title,
-  .title2 {
-    font-weight: 400;
-  }
-
-  .title {
-    font-size: 24vw;
-    line-height: 1;
-
-    @media (min-width: 1024px) {
-      font-size: 13.5vw;
-    }
-
-    @media (min-width: 1024px) and (min-height: 768px) {
-      font-size: 17.5vw;
-    }
-
-    @media (min-width: 1440px){
-      font-size: 180px;
-    }
-
-    @media (min-width: 1920px){
-      font-size: 255px;
-    }
-  }
-
-  .title2 {
-    font-size: 40px;
-    line-height: 1.4;
-
-    @media (min-width: 768px) {
-      font-size: 50px;
-    }
-  }
-
-  .label {
-    font-size: ${pixelate(typography.baseFontSize)};
-    margin-right: ${space(0.25)};
-  }
-
   a {
     color: ${colors.base500};
     display: inline-block;
@@ -88,6 +48,29 @@ const typographyStyles = `
   &::selection {
     background-color: ${colors.primary} !important;
     color: ${colors.base500} !important;
+  }
+
+  .title,
+  .title2 {
+    font-weight: 400;
+  }
+
+  .title {
+    font-size: 17vw;
+    line-height: 1;
+
+    @media (min-width: 1024px) {
+      font-size: 175px;
+    }
+  }
+
+  .title2 {
+    font-size: 40px;
+    line-height: 1.4;
+
+    @media (min-width: 768px) {
+      font-size: 50px;
+    }
   }
 
   .p {
