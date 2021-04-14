@@ -4,7 +4,7 @@ import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
 
 const ProjectListStyled = styled.div`
-  margin-bottom: ${space(2)};
+  padding-bottom: ${space(3)};
 
   .project-image-animation { display: none; }
 
@@ -45,21 +45,22 @@ const ProjectListStyled = styled.div`
     }
 
     .project-image-animation {
-      height: 55vh;
-      width: 50vh;
+      height: 50vh;
+      width: 50vw;
       top: calc(50% - 25vh);
     }
   `}
 
-  ${media.min('desktopLarge')`
-    margin: ${space(4)} 0;
+  ${media.min('tablet')`
+    padding: ${space(3)} 0;
   `}
 
-  ${media.min('maxWidth')`
+  ${media.min('desktop')`
+    padding: ${space(4)} 0;
+
     .project-image-animation {
-      height: 65vh;
-      width: 60vh;
-      top: calc(50% - 25vh);
+      height: 60vh;
+      top: calc(50% - 30vh);
     }
   `}
 `;

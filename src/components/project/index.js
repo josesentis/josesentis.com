@@ -1,11 +1,26 @@
 import React from 'react';
-// import AnimateHeight from 'react-animate-height';
 import { Link } from 'react-router-dom';
 
-import { toggleCursor } from '../cursor';
 import BackgroundImage from '../backgroundImage';
+import { toggleCursor } from '../cursor';
 
 import ProjectStyled from './styles';
+
+const Content = ({ order, title, year, stack, image }) => (
+  <>
+    <BackgroundImage src={image} className="project__image" />
+    <h2 className="project__title title2">
+      <div className="title-wrapper">
+        <span className="label">
+          {order.toString().length === 1 ? '0' : ''}
+          {order}.
+        </span>
+        <span>{title}</span>
+      </div>
+      <p className="p">{year} - {stack}</p>
+    </h2>
+  </>
+);
 
 class Project extends React.PureComponent {
   componentDidMount () {
@@ -16,13 +31,10 @@ class Project extends React.PureComponent {
   render () {
     const {
       project: {
-        year,
         external,
         externalLink,
         slug,
-        order,
-        image,
-        stack
+        ...props
       }
     } = this.props;
     const title = this.props.project.title || slug;
@@ -38,21 +50,26 @@ class Project extends React.PureComponent {
           this._projectImage.classList.remove('is-active');
           toggleCursor();
         }}
-        href={external ? externalLink : `projects/${slug}`}
-        target={external ? '_blank' : '_self'}
-        rel={external ? 'noopener noreferrer' : ''}
       >
-        <BackgroundImage src={image} className="project__image" />
-        <h2 className="project__title title2">
-          <div className="title-wrapper">
-            <span className="label">
-              {order.toString().length === 1 ? '0' : ''}
-              {order}.
-            </span>
-            <span>{title}</span>
-          </div>
-          <p className="p">{year} - {stack}</p>
-        </h2>
+        {external ? (
+          <a
+            href={externalLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Content
+              title={title}
+              {...props}
+            />
+          </a>
+        ) : (
+          <Link to={`projects/${slug}`}>
+            <Content
+              title={title}
+              {...props}
+            />
+          </Link>
+        )}
       </ProjectStyled>
     );
   }
