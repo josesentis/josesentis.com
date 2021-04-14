@@ -1,14 +1,11 @@
 import React from 'react';
 import { Query } from "react-apollo";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { withRouter } from "react-router";
 
 import Component from '../../components/component';
 import CrossNavigation from '../../components/crossNavigation';
 import Header from '../../components/header';
-import { AppearingText, NavigationWrapper } from '../../components/navigation';
 import Layout, { Wrapper } from '../../layouts/Default';
-import withLoader from '../../hocs/withLoader';
 
 import DATA from '../../data/content.json';
 import GET_HOME_DATA from '../home/queries';
@@ -16,11 +13,11 @@ import ProjectDetail from './styles';
 
 class Project extends React.Component {
   render () {
-    const { loaded, location: { pathname } } = this.props;
+    const { location: { pathname } } = this.props;
 
     return (
       <Query query={GET_HOME_DATA}>
-        {({ loading, data }) => {
+        {({ data }) => {
           const {
             pages: {
               projects: {
@@ -64,4 +61,4 @@ class Project extends React.Component {
   }
 }
 
-export default withLoader(withRouter(Project));
+export default withRouter(Project);
