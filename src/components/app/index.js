@@ -33,23 +33,12 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {!loading ? (
-        <ApolloProvider client={client}>
-          <Cursor />
-          <Router history={history}>
-            <AppRouter />
-          </Router>
-        </ApolloProvider>
-      ) : (
-          <TransitionGroup>
-            {showLoader && (
-              <CSSTransition classNames="loaded" timeout={2000}>
-                <Loader />
-              </CSSTransition>
-            )}
-          </TransitionGroup>
-        )
-      }
+      <ApolloProvider client={client}>
+        <Cursor />
+        <Router history={history}>
+          <AppRouter />
+        </Router>
+      </ApolloProvider>
     </>
   );
 }

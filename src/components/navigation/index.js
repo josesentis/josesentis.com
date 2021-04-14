@@ -35,7 +35,7 @@ class Navigation extends React.Component {
                     <div>
                       <Link
                         to={routes.projects}
-                        className="title link"
+                        className={`title link`}
                         onMouseEnter={() => toggleCursor()}
                         onMouseLeave={() => toggleCursor()}
                       >

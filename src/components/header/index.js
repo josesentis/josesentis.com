@@ -63,7 +63,11 @@ class Header extends React.Component {
                   </TransitionGroup>
                 </Wrapper>
               </HeaderStyled>
-              {showNavigation && <Navigation />}
+              {showNavigation && (
+                <CSSTransition classNames="loaded" timeout={200}>
+                  <Navigation />
+                </CSSTransition>
+              )}
             </>
           );
         }}

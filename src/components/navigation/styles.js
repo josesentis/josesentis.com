@@ -2,17 +2,23 @@ import styled from 'styled-components';
 
 import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
+import { colors } from '../../utils/settings';
 
 const NavigationWrapper = styled.div`
   align-items: flex-start;
+  background-color: ${colors.base500};
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100%;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   > div { width: 100%; }
 
   .title {
+    color: ${colors.base100};
     margin-bottom: ${space(1)};
     margin-left: -7px;
   }
