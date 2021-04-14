@@ -11,11 +11,11 @@ import Layout, { Wrapper } from '../../layouts/Default';
 import withLoader from '../../hocs/withLoader';
 
 import DATA from '../../data/content.json';
-import GET_PROJECTS from '../projects/queries';
+import GET_PROJECTS from '../home/queries';
 import ProjectDetail from './styles';
 
 class Project extends React.Component {
-  render() {
+  render () {
     const { loaded, location: { pathname } } = this.props;
 
     return (

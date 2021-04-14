@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimateHeight from 'react-animate-height';
+// import AnimateHeight from 'react-animate-height';
 import { Link } from 'react-router-dom';
 
 import { toggleCursor } from '../cursor';
@@ -20,7 +20,7 @@ class Project extends React.PureComponent {
   render () {
     const {
       project: {
-        abstract,
+        year,
         external,
         externalLink,
         slug,
@@ -43,7 +43,7 @@ class Project extends React.PureComponent {
             {title}
           </span>
         </div>
-        <p className="p">{stack}</p>
+        <p className="p">{stack} - {year}</p>
       </>
     );
 

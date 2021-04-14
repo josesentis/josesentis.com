@@ -45,7 +45,8 @@ const data = {
           image: '/images/covers/stooa.jpg',
           order: '1',
           slug: '',
-          abstract: `The online fishbowl event.<br>Stooa allows you to create participatory virtual events with automatic facilitation based on the fishbowl method.<br><br>All participants feel engaged, maintain attention, and can move in and out of the fishbowl as they wish to enter the conversation. The hierarchy is removed and the level of engagement of the participants increases.<br><br>Attendees can share experiences, meet the rest of the participants and build their own network of informal or professional contacts.<br><br> 2021 - Design: Sarah Romero`,
+          year: '2021'
+          // abstract: `The online fishbowl event.<br>Stooa allows you to create participatory virtual events with automatic facilitation based on the fishbowl method.<br><br>All participants feel engaged, maintain attention, and can move in and out of the fishbowl as they wish to enter the conversation. The hierarchy is removed and the level of engagement of the participants increases.<br><br>Attendees can share experiences, meet the rest of the participants and build their own network of informal or professional contacts.<br><br> 2021 - Design: Sarah Romero`,
         },
         {
           __typename: 'Project',
@@ -56,7 +57,8 @@ const data = {
           image: '/images/covers/slovinsky.jpg',
           order: '2',
           slug: '',
-          abstract: `Defined as a brand between classic and modern style, Slovinsky launches its website as a new growth step. Anna, Slovinsky's owner and designer, has a long jewelry tradition in her family which allow her to create pieces with soul and personality, as she describes.<br>Making the most of Gatsby's fast and stable features and it's easy integration with platforms like Contentful and Netlify we created an MVP website which intends to evolve parallel to Slovinsky's needs adding new features and iterations in the near future.<br><br>2020 - Design: Alex Muñoz`,
+          year: '2020'
+          // abstract: `Defined as a brand between classic and modern style, Slovinsky launches its website as a new growth step. Anna, Slovinsky's owner and designer, has a long jewelry tradition in her family which allow her to create pieces with soul and personality, as she describes.<br>Making the most of Gatsby's fast and stable features and it's easy integration with platforms like Contentful and Netlify we created an MVP website which intends to evolve parallel to Slovinsky's needs adding new features and iterations in the near future.<br><br>2020 - Design: Alex Muñoz`,
         },
         {
           __typename: 'Project',

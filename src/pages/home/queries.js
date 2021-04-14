@@ -14,7 +14,7 @@ const GET_PROJECTS = gql`
           slug
           image
           order
-          abstract
+          year
         }
       }
     }
