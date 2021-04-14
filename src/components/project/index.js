@@ -8,10 +8,6 @@ import BackgroundImage from '../backgroundImage';
 import ProjectStyled from './styles';
 
 class Project extends React.PureComponent {
-  state = {
-    hover: false
-  }
-
   componentDidMount () {
     const { title } = this.props.project;
     this._projectImage = document.getElementById(title.replace(' ', '-'));
@@ -30,7 +26,6 @@ class Project extends React.PureComponent {
       }
     } = this.props;
     const title = this.props.project.title || slug;
-    const { hover } = this.state;
 
     const content = (
       <>
@@ -49,20 +44,19 @@ class Project extends React.PureComponent {
 
     return (
       <ProjectStyled
-        className={`project ${hover ? 'active' : ''}`}
+        className={`project`}
         onMouseEnter={() => {
-          this.setState({ hover: true });
-          this._projectImage.parentNode.classList.add('is-hover');
+          // this._projectImage.parentNode.classList.add('is-hover');
           this._projectImage.classList.add('is-active');
           toggleCursor();
         }}
         onMouseLeave={() => {
-          this.setState({ hover: false });
           toggleCursor();
           this._projectImage.parentNode.classList.remove('is-hover');
           this._projectImage.classList.remove('is-active');
         }}
       >
+        <BackgroundImage src={image} className="project__image" />
         <h2 className="project__title title2">
           {external ? (
             <a
@@ -79,9 +73,6 @@ class Project extends React.PureComponent {
             </Link>
           )}
         </h2>
-        <div className="project__content">
-          <BackgroundImage src={image} className="project__image" />
-        </div>
       </ProjectStyled>
     );
   }
