@@ -3,20 +3,26 @@ import { Query } from "react-apollo";
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { Wrapper } from '../../layouts/Default';
 import withLoader from '../../hocs/withLoader';
+import { Wrapper } from '../../layouts/Default';
 import { toggleCursor } from '../cursor';
+import Navigation from '../navigation';
 
 import GET_DATA from './queries';
 import HeaderStyled from './styles';
 
 class Header extends React.Component {
-  componentWillUnmount() {
+  state = {
+    showNavigation: false
+  }
+
+  componentWillUnmount () {
     toggleCursor('', true);
   }
 
-  render() {
+  render () {
     const { loaded } = this.props;
+    const { showNavigation } = this.state;
 
     return (
       <Query query={GET_DATA}>
@@ -27,29 +33,38 @@ class Header extends React.Component {
           } = data;
 
           return (
-            <HeaderStyled>
-              <Wrapper>
-                <TransitionGroup component={null}>
-                  {loaded && !loading && (
-                    <CSSTransition classNames="loaded" timeout={200}>
-                      <div className="header">
-                        <div>
-                          <Link
-                            to="/"
-                            onMouseEnter={() => toggleCursor()}
-                            onMouseLeave={() => toggleCursor()}
-                          >
-                            <span>{name}</span>
-                            <span>folio - {new Date().getFullYear()}</span>
-                          </Link>
+            <>
+              <HeaderStyled>
+                <Wrapper>
+                  <TransitionGroup component={null}>
+                    {loaded && !loading && (
+                      <CSSTransition classNames="loaded" timeout={200}>
+                        <div className="header-wrapper">
+                          <div className="header">
+                            <div>
+                              <Link
+                                to="/"
+                                onMouseEnter={() => toggleCursor()}
+                                onMouseLeave={() => toggleCursor()}
+                              >
+                                <span>{name}</span>
+                                <span>folio - {new Date().getFullYear()}</span>
+                              </Link>
+                            </div>
+                            <div>{job}</div>
+                          </div>
+                          <button
+                            className="nav-toggle"
+                            onClick={() => { this.setState({ showNavigation: !showNavigation }); }}
+                          >menu</button>
                         </div>
-                        <div>{job}</div>
-                      </div>
-                    </CSSTransition>
-                  )}
-                </TransitionGroup>
-              </Wrapper>
-            </HeaderStyled>
+                      </CSSTransition>
+                    )}
+                  </TransitionGroup>
+                </Wrapper>
+              </HeaderStyled>
+              {showNavigation && <Navigation />}
+            </>
           );
         }}
       </Query>

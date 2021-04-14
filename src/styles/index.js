@@ -63,6 +63,7 @@ const GlobalStyle = createGlobalStyle`
     background: none repeat scroll 0 0 transparent;
     border: 0;
     font-family: 'Space Mono', monospace;
+    outline: none;
   }
 
   iframe {

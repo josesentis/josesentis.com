@@ -4,7 +4,6 @@ import { withRouter } from "react-router";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Header from '../../components/header';
-// import Navigation from '../components/navigation';
 import { AppearingText } from '../../components/navigation';
 import ProjectList from '../../components/projectList';
 import withLoader from '../../hocs/withLoader';
@@ -73,5 +72,3 @@ class Home extends React.Component {
 }
 
 export default withLoader(withRouter(Home));
-
-// <Navigation />
