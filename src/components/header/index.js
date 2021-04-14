@@ -20,6 +20,15 @@ class Header extends React.Component {
     toggleCursor('', true);
   }
 
+  toggleNavigation = () => {
+    const { showNavigation } = this.state;
+
+    if (showNavigation) document.documentElement.classList.remove('no-overflow');
+    else document.documentElement.classList.add('no-overflow');
+
+    this.setState({ showNavigation: !showNavigation });
+  }
+
   render () {
     const { loaded } = this.props;
     const { showNavigation } = this.state;
@@ -55,7 +64,7 @@ class Header extends React.Component {
                           </div>
                           <button
                             className="nav-toggle"
-                            onClick={() => { this.setState({ showNavigation: !showNavigation }); }}
+                            onClick={this.toggleNavigation}
                           >
                             {showNavigation && 'close'}
                             {!showNavigation && 'menu'}

@@ -143,6 +143,8 @@ const GlobalStyle = createGlobalStyle`
     ${textStroke}
   }
 
+  .no-overflow { overflow: hidden; }
+
   ${typographyStyles}
   ${utils}
 `;
