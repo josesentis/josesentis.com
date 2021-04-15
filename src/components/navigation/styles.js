@@ -20,9 +20,7 @@ const NavigationWrapper = styled.div`
       margin-left: -4px;
     }
 
-    .link.active {
-      color: ${colors.primary};
-    }
+    .link.active { color: ${colors.primary}; }
   }
 
   .navigation-wrapper {
@@ -33,7 +31,13 @@ const NavigationWrapper = styled.div`
     position: relative;
   }
 
-  .navigation-links .loaded-enter-done .hide { opacity: 0; }
+  .navigation-links .loaded-enter-done .hide {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+
+    &.active { -webkit-text-stroke: 1px ${colors.primary}; }
+  }
 
   .social a { color: ${colors.base100}; }
   .loaded-enter-done:last-child .title { padding-bottom: 0; }

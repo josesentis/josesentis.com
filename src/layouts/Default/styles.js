@@ -62,6 +62,7 @@ const LayoutStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    min-height: 100vh;
     padding-bottom: ${space(3)};
   }
 
