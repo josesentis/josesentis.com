@@ -40,7 +40,7 @@ class Home extends React.Component {
                       <CSSTransition classNames="loaded" timeout={400}>
                         <h1 className="title">
                           {job.split(' ').map((word, j) => (
-                            <AppearingText>
+                            <AppearingText key={`job-${j}`}>
                               {word.split('').map((char, i) => (
                                 <span key={`title-${i}-${j}`} className="text">{char}</span>
                               ))}
@@ -54,7 +54,7 @@ class Home extends React.Component {
                       <CSSTransition classNames="loaded" timeout={600}>
                         <div>
                           <AppearingText className="title2">
-                            <span className="text">{name} - © {currentYear}</span>
+                            <span className="text">{name} - {currentYear}</span>
                           </AppearingText>
                         </div>
                       </CSSTransition>

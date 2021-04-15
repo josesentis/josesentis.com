@@ -29,9 +29,10 @@ const ProjectStyled = styled.div`
     margin: 0 0 ${space()};
 
     &::after {
-      z-index: 1 !important;
-      opacity: 1 !important;
       background: rgba(0, 0, 0, 0.4) !important;
+      padding-bottom: 80%;
+      opacity: 1 !important;
+      z-index: 1 !important;
     }
   }
 

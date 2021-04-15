@@ -46,7 +46,7 @@ const NavigationWrapper = styled.div`
     }
 
     .double-link {
-      line-height: 1;
+      line-height: 1.1;
 
       &-desktop { display: none; }
 

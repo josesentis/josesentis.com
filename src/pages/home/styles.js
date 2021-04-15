@@ -6,7 +6,7 @@ import { media } from '../../utils/media-queries';
 const Fold = styled.div`
   align-items: flex-end;
   display: flex;
-  padding: ${space(5)} 0 ${space(1.5)};
+  padding: ${space(5)} 0 ${space(2.5)};
   position: relative;
   z-index: 1;
 

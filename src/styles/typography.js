@@ -54,16 +54,16 @@ const typographyStyles = `
 
   .title {
     font-size: 17vw;
-    line-height: 1;
+    line-height: 1.15;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       font-size: 175px;
-      line-height: 1.15;
+      line-height: 1.05;
     }
   }
 
   .title2 {
-    font-size: 35px;
+    font-size: 38px;
     line-height: 1.4;
 
     @media (min-width: 768px) {
