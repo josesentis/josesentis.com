@@ -103,7 +103,7 @@ class Navigation extends React.Component {
                         }}
                       >
                         {playground.split('<hr />').map((half, j) => (
-                          <span>
+                          <span key={`char-playground-${j}`}>
                             {half.split('').map((char, i) => (
                               <span key={`char-playground-${i}-${j}-mobile`} className="text">{char}</span>
                             ))}

@@ -10,44 +10,39 @@ import ProfileWrapper from './styles';
 import GET_PROFILE from './queries';
 
 class Profile extends React.Component {
-  mainTag = null;
-  content = null;
+  links = null;
   image = null;
 
   componentDidMount () {
-    this.mainTag = document.getElementsByTagName('main')[0];
-    this.content = document.getElementById('content');
+    this.links = document.querySelectorAll('.hover-target a');
     this.image = document.getElementById('image');
 
     this.triggerHover();
-    window.addEventListener('scroll', this.onScroll);
+    // window.addEventListener('scroll', this.onScroll);
   }
 
   componentWillUnmount () {
     this.removeHover();
-    window.removeEventListener('scroll', this.onScroll);
+    // window.removeEventListener('scroll', this.onScroll);
   }
 
-  onScroll = () => {
-    const { y, height } = this.content.getBoundingClientRect();
+  // onScroll = () => {
+  //   const { y, height } = this.content.getBoundingClientRect();
 
-    if (y + height <= window.innerHeight) this.image.classList.add('fixed');
-    else this.image.classList.remove('fixed');
-  }
+  //   if (y + height <= window.innerHeight) this.image.classList.add('fixed');
+  //   else this.image.classList.remove('fixed');
+  // }
 
   triggerHover = () => {
-    const links = this._text.querySelectorAll('a');
-
-    forEach(links, item => {
+    console.log(this.links);
+    forEach(this.links, item => {
       item.addEventListener('mouseover', () => { toggleCursor(); });
       item.addEventListener('mouseleave', () => { toggleCursor(); });
     });
   }
 
   removeHover = () => {
-    const links = this._text.querySelectorAll('a');
-
-    forEach(links, item => {
+    forEach(this.links, item => {
       item.removeEventListener('mouseover', () => { toggleCursor(); }, false);
       item.removeEventListener('mouseleave', () => { toggleCursor(); }, false);
     });
@@ -73,11 +68,12 @@ class Profile extends React.Component {
 
     return (
       <ProfileWrapper ref={ref => this._text = ref}>
-        <div id="content" className="content-wrapper">
+        <div className="content-wrapper">
           <div id="image" className="profile-image"><BackgroundImage src={image} /></div>
           <div className="content">
             <div className="p-big">
               <div
+                className="hover-target"
                 dangerouslySetInnerHTML={{
                   __html: content
                 }}
@@ -88,7 +84,7 @@ class Profile extends React.Component {
                 linkedin={linkedin}
                 instagram={instagram}
               />
-              <p className="thanks">
+              <p className="thanks hover-target">
                 Designed by&nbsp;
                 <a
                   href="http://cris-garcia.com/"
@@ -101,9 +97,7 @@ class Profile extends React.Component {
             </div>
           </div>
         </div>
-        <div
-          className="say-hi"
-        >
+        <div className="say-hi hover-target">
           <div
             className="title2"
             dangerouslySetInnerHTML={{

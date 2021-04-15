@@ -56,7 +56,7 @@ const typographyStyles = `
     font-size: 17vw;
     line-height: 1.15;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       font-size: 175px;
       line-height: 1.05;
     }
