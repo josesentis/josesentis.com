@@ -15,6 +15,8 @@ const AppRouter = () => {
   return (
     <Route
       render={({ location }) => {
+        window.scrollTo(0, 0);
+
         return (
           <TransitionGroup>
             <CSSTransition
