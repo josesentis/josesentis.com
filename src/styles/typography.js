@@ -23,12 +23,6 @@ const typographyStyles = `
       color: ${colors.primary};
     }
 
-    .non-touch .dark &:hover,
-    .dark &.active {
-      background-color: ${colors.base100};
-      color: ${colors.base500};
-    }
-
     .non-touch .playground &:hover {
       background-color: transparent;
       color: ${colors.primary};

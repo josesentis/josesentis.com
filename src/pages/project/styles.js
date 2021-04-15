@@ -6,7 +6,7 @@ import { colors } from '../../utils/settings';
 
 const ProjectDetail = styled.article`
   background-image: linear-gradient(90deg, ${colors.base500} 50%, ${colors.base100} 50%);
-  margin-top: ${space()};
+  margin-top: ${space(2)};
 
   > div { padding: 0; }
 
@@ -21,11 +21,11 @@ const ProjectDetail = styled.article`
     }
   }
 
-  .dark & .background-wrapper {
+  .background-wrapper {
     background-color: ${colors.base100};
     color: ${colors.base500};
     margin: 0 calc(100% / 12);
-    padding: ${space(3)} ${space()} ${space(2)};
+    padding: ${space(2)} ${space()} ${space(2)};
 
     .reading { padding: 0; }
     a { color: ${colors.base500}; }
@@ -33,14 +33,12 @@ const ProjectDetail = styled.article`
 
   ${media.min('tablet')`
     .title2 {
-      margin-left: ${space(-1.5)};
       padding-left: ${space(1.5)};
     }
   `}
 
   ${media.min('desktop')`
     .title2 .label { bottom: 16px; }
-    .background-wrapper { padding-top: ${space(5)}; }
   `}
 
   ${media.min('desktopLarge')`

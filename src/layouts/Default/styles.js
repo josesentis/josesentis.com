@@ -22,6 +22,8 @@ const Wrapper = styled.div`
       padding-right: 0;
     `};
   }
+
+  &.dark { background-color: ${colors.base500}; }
 `;
 
 const LayoutStyled = styled.div`
@@ -38,14 +40,13 @@ const LayoutStyled = styled.div`
   &.fade-exit-active { opacity: 0; }
 
   &.playground main,
-  &.dark main {
-    background-color: ${colors.base500};
+  &.dark main { background-color: ${colors.base500}; }
+
+  &.playground main {
     color: ${colors.white};
     padding-bottom: 0;
 
-    a {
-      color: ${colors.primary};
-    }
+    a { color: ${colors.primary}; }
   }
 
   &:not(.home) main {

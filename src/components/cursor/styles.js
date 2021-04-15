@@ -21,12 +21,6 @@ const Circle = styled.span`
 
   .non-touch &.moved { display: block; }
 
-  .dark & {
-    background-color: ${colors.base100};
-
-    &.hover { border-bottom-color: ${colors.base100}; }
-  }
-
   &.hover {
     background: transparent;
     border-bottom: 30px solid ${colors.primary};
