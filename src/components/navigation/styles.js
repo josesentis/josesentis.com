@@ -30,7 +30,7 @@ const NavigationWrapper = styled.div`
     overflow-y: auto;
     padding-bottom: ${space(1.5)};
     padding-top: ${space(5)};
-    position: static;
+    position: relative;
   }
 
   .navigation-links .loaded-enter-done .hide { opacity: 0; }
@@ -95,6 +95,7 @@ const AppearingText = styled.div`
   display: block;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 
   .text {
     display: inline-block;

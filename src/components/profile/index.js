@@ -1,5 +1,6 @@
 import React from 'react';
 import forEach from '@runroom/purejs/lib/forEach';
+import gsap from 'gsap';
 
 import withQuery from '../../hocs/withQuery';
 import BackgroundImage from '../backgroundImage';
@@ -18,23 +19,23 @@ class Profile extends React.Component {
     this.image = document.getElementById('image');
 
     this.triggerHover();
-    // window.addEventListener('scroll', this.onScroll);
+    document.addEventListener('mousemove', this.handleMouseMove);
   }
 
   componentWillUnmount () {
     this.removeHover();
-    // window.removeEventListener('scroll', this.onScroll);
+    document.removeEventListener('mousemove', this.handleMouseMove);
   }
 
-  // onScroll = () => {
-  //   const { y, height } = this.content.getBoundingClientRect();
+  handleMouseMove = event => {
+    let x = event.clientX;
+    let y = event.clientY;
+    const tl = gsap.timeline();
 
-  //   if (y + height <= window.innerHeight) this.image.classList.add('fixed');
-  //   else this.image.classList.remove('fixed');
-  // }
+    tl.to(this.image, { left: x, top: y });
+  }
 
   triggerHover = () => {
-    console.log(this.links);
     forEach(this.links, item => {
       item.addEventListener('mouseover', () => { toggleCursor(); });
       item.addEventListener('mouseleave', () => { toggleCursor(); });

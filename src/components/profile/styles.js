@@ -8,25 +8,13 @@ const ProfileWrapper = styled.div`
   .thanks { margin-top: ${space(2)}; }
   .content > * { max-width: 680px; }
 
-  // .social {
-  //   align-items: flex-start;
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-top: ${space(2)};
-
-  //   a {
-  //     margin-bottom: ${space()};
-
-  //     &:last-child { margin-bottom: 0; }
-  //   }
-  // }
-
   .say-hi {
     align-items: center;
     display: flex;
     margin: 0 auto;
     max-width: 850px;
     min-height 80vh;
+    position: relative;
   }
 
   ${media.max('tablet')`
@@ -44,16 +32,13 @@ const ProfileWrapper = styled.div`
     }
 
     .profile-image {
-      padding-bottom: 5vh;
+      left: 50vw;
       pointer-events: none;
       position: fixed;
-      bottom: 0;
+      top: 50vh;
       width: 50vw;
+      transform: translate(-50%, -50%);
       z-index: 0;
-
-      &.fixed {
-        position: absolute;
-      }
     }
 
     .content {
@@ -64,7 +49,6 @@ const ProfileWrapper = styled.div`
 
   ${media.between('tablet', 'desktop')`
     .content { margin-top: ${space(2)}; }
-    // .social { align-items: flex-end; }
     .thanks { text-align: right; }
   `}
 
