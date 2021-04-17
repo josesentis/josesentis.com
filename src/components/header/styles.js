@@ -27,8 +27,6 @@ const HeaderStyled = styled.header`
     justify-content: space-between;
     padding: ${space()} 0;
 
-    .home & { transform: translateY(-100%); }
-
     &.loaded-enter-done {
       transition: transform .7s cubic-bezier(.215, .61, .355, 1);
       transform: translateY(0);
