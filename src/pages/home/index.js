@@ -54,7 +54,7 @@ class Home extends React.Component {
                       <CSSTransition classNames="loaded" timeout={600}>
                         <div>
                           <AppearingText className="title2">
-                            <span className="text">{name} - {currentYear}</span>
+                            <span className="text">{name} --- {currentYear}</span>
                           </AppearingText>
                         </div>
                       </CSSTransition>
