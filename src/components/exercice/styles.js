@@ -2,8 +2,30 @@ import styled from 'styled-components';
 
 import { media } from '../../utils/media-queries';
 import { space, columns } from '../../utils/mixins';
+import { colors } from '../../utils/settings';
 
-const ExerciceStyled = styled.div`
+const ExerciceStyled = styled.a`
+  color: ${colors.white} !important;
+
+  .link {
+    color: ${colors.primary} !important;
+    display: inline-block;
+
+    &:after {
+      border-bottom: 2px solid currentColor;
+      content: '';
+      display: block;
+      margin-top: -2px;
+    }
+
+    .non-touch &:hover {
+      background-color: transparent;
+      color: ${colors.primary};
+
+      &:after { display: none; }
+    }
+  }
+
   h2 {
     font-weight: 700;
     margin-bottom: ${space()};
