@@ -11,7 +11,7 @@ class SEO extends React.Component {
     return (
       <Query query={GET_SEO}>
         {({ data }) => {
-          const webTitle = `${data.name} --- ${data.job}`;
+          const webTitle = `${data.name} — ${data.job}`;
           const titleTemplate = title ? `%s | ${webTitle}` : `%s`;
           const metaDescription = description || data.description;
           const metaTitle = title || webTitle;
