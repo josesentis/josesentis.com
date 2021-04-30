@@ -50,10 +50,15 @@ const ProfileWrapper = styled.div`
   ${media.between('tablet', 'desktop')`
     .content { margin-top: ${space(2)}; }
     .thanks { text-align: right; }
+
+    .profile-image {
+      left: 50vw !important;
+      top: 50vh !important;
+    }
   `}
 
   ${media.min('desktop')`
-    .profile-image { width: 40vw; }
+    .profile-image { width: 30vw; }
     .content { padding-left: 30vw; }
   `}
 
