@@ -13,26 +13,39 @@ import GET_PROFILE from './queries';
 class Profile extends React.Component {
   links = null;
   image = null;
+  content = null;
 
   componentDidMount () {
     this.links = document.querySelectorAll('.hover-target a');
     this.image = document.getElementById('image');
+    this.content = document.getElementById('content');
 
     this.triggerHover();
-    document.addEventListener('mousemove', this.handleMouseMove);
+    this.handleScroll();
+    document.addEventListener('mousemove', this.handleMouseMove, false);
+    document.addEventListener('scroll', this.handleScroll, false);
   }
 
   componentWillUnmount () {
     this.removeHover();
     document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('scroll', this.handleScroll);
   }
 
   handleMouseMove = event => {
-    let x = event.clientX;
-    let y = event.clientY;
+    const tl = gsap.timeline();
+    const clientX = event.clientX;
+    const clientY = event.clientY;
+
+    tl.to(this.image, { left: clientX, top: clientY });
+  }
+
+  handleScroll = () => {
+    const { y, height } = this.content.getBoundingClientRect();
     const tl = gsap.timeline();
 
-    tl.to(this.image, { left: x, top: y });
+    if (y + height <= window.innerHeight / 2) tl.to(this.image, { opacity: 0 });
+    else tl.to(this.image, { opacity: 1 });
   }
 
   triggerHover = () => {
@@ -69,7 +82,7 @@ class Profile extends React.Component {
 
     return (
       <ProfileWrapper ref={ref => this._text = ref}>
-        <div className="content-wrapper">
+        <div id="content" className="content-wrapper">
           <div id="image" className="profile-image"><BackgroundImage src={image} /></div>
           <div className="content">
             <div className="p-big">

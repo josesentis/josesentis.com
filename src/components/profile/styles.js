@@ -58,7 +58,11 @@ const ProfileWrapper = styled.div`
   `}
 
   ${media.min('desktop')`
-    .profile-image { width: 30vw; }
+    .profile-image {
+      max-width: 500px;
+      width: 30vw;
+    }
+
     .content { padding-left: 30vw; }
   `}
 
