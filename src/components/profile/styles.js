@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { media } from '../../utils/media-queries';
 import { space } from '../../utils/mixins';
+import { colors } from '../../utils/settings';
 
 const ProfileWrapper = styled.div`
-  .background-img { filter: grayscale(100%); }
   .thanks { margin-top: ${space(2)}; }
   .content > * { max-width: 680px; }
 
@@ -17,10 +17,29 @@ const ProfileWrapper = styled.div`
     position: relative;
   }
 
+  .profile-image {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      background-color: ${colors.primary};
+      bottom: 0;
+      content: '';
+      filter: opacity(0.5);
+      left: 0;
+      position: absolute;
+      right 0;
+      top: 0;
+    }
+  }
+
   ${media.max('tablet')`
     margin-bottom: ${space(2)};
 
-    .background-img { margin-bottom: ${space(2)}; }
+    .profile-image {
+      margin-bottom: ${space(2)};
+      margin-top: ${space()};
+    }
   `}
 
   ${media.min('tablet')`
@@ -59,7 +78,7 @@ const ProfileWrapper = styled.div`
 
   ${media.min('desktop')`
     .profile-image {
-      max-width: 500px;
+      max-width: 450px;
       width: 30vw;
     }
 
