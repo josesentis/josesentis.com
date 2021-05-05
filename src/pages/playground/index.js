@@ -25,7 +25,7 @@ class Playground extends React.Component {
     exercices: {}
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios.get(`contents.json`)
       .then(({ data }) => {
         this.setState({ loaded: true, exercices: data });
@@ -34,10 +34,8 @@ class Playground extends React.Component {
       });
   }
 
-  render() {
+  render () {
     const { loaded, exercices } = this.state;
-
-    console.log('Page render');
 
     return (
       <Query query={GET_PLAYGROUND}>
@@ -61,7 +59,7 @@ class Playground extends React.Component {
               <Wrapper>
                 <CircleText
                   text={this._rotatingTitle}
-                  onMouseEnter={() => { toggleCursor('rotating-text') }}
+                  onMouseEnter={() => { toggleCursor('rotating-text') }}
                   onMouseLeave={() => { toggleCursor('rotating-text') }}
                 />
                 <div id="intro-text" className="intro">

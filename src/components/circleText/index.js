@@ -11,7 +11,7 @@ class circleText extends React.Component {
     hover: false
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.rotateElement();
 
     this._headerElement = document.getElementById('moving-text');
@@ -19,7 +19,7 @@ class circleText extends React.Component {
 
   rotateElement = () => {
     this._tween = TweenMax.to(this._circleRef, {
-      duration: 4,
+      duration: 5,
       rotate: 360,
       repeat: -1,
       ease: 'none'
@@ -42,7 +42,7 @@ class circleText extends React.Component {
     this.setState({ hover: false });
   }
 
-  render() {
+  render () {
     const { text, onMouseEnter, onMouseLeave, ...props } = this.props;
     const characters = text.split("");
     const degrees = 360 / characters.length;
