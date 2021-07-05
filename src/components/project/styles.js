@@ -28,9 +28,11 @@ const ProjectStyled = styled.div`
   .project__image {
     margin: 0 0 ${space()};
 
+    &::before { padding-bottom: 75%; }
+
     &::after {
       background: rgba(0, 0, 0, 0.4) !important;
-      padding-bottom: 80%;
+      padding-bottom: 75%;
       opacity: 1 !important;
       z-index: 1 !important;
     }

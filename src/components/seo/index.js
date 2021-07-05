@@ -5,13 +5,13 @@ import { Query } from "react-apollo";
 import GET_SEO from './queries';
 
 class SEO extends React.Component {
-  render() {
+  render () {
     const { description, lang = 'en', meta, title } = this.props;
 
     return (
       <Query query={GET_SEO}>
         {({ data }) => {
-          const webTitle = `${data.name} - ${data.job}`;
+          const webTitle = `${data.name} — ${data.job}`;
           const titleTemplate = title ? `%s | ${webTitle}` : `%s`;
           const metaDescription = description || data.description;
           const metaTitle = title || webTitle;

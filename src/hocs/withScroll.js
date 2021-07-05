@@ -2,34 +2,28 @@ import React from 'react';
 
 const withScrollTop = WrappedComponent => {
   return class extends React.Component {
-    _mainElement;
+    _documentElement;
     state = {
       scrollTop: 0,
     }
 
-    componentDidMount() {
-      this._mainElement = document.getElementsByTagName('main')[0];
-      this._mainElement.addEventListener('scroll', this.calculteUserScroll);
+    componentDidMount () {
+      this._documentElement = document.documentElement;
 
       this.calculteUserScroll();
+      document.addEventListener('scroll', this.calculteUserScroll);
     };
 
-    componentWillUnmount() {
-      this.cancelScroll();
+    componentWillUnmount () {
+      document.removeEventListener('scroll', this.calculteUserScroll);
     };
 
-    calculteUserScroll = () => {
-      this.setState({ scrollTop: this.scrollTop() });
-    }
+    calculteUserScroll = () => { this.setState({ scrollTop: this._documentElement.scrollTop }) }
 
-    cancelScroll = () => {
-      this._mainElement.removeEventListener('scroll', this.calculteUserScroll);
-    }
+    render () {
+      console.log(this.state.scrollTop);
 
-    scrollTop = () => this._mainElement.scrollTop;
-
-    render() {
-      return <WrappedComponent {...this.props} scrollTop={this.state.scrollTop} cancelScroll={this.cancelScroll} />;
+      return <WrappedComponent {...this.props} scrollTop={this.state.scrollTop} />;
     }
   }
 };

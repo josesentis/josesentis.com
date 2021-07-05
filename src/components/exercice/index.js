@@ -12,7 +12,7 @@ class Exercice extends React.PureComponent {
     visible: true
   }
 
-  render() {
+  render () {
     const {
       exercice: {
         abstract,
@@ -26,23 +26,25 @@ class Exercice extends React.PureComponent {
     const formattedDate = moment(date).format("MM.YYYY");
 
     return (
-      <ExerciceStyled>
+      <ExerciceStyled
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="link"
+      >
         {visible && <BackgroundImage src={`${playground}${image}`} alt={title} scaleEffect={true} />}
         <div className="content">
           <div className="content-text">
             <h2 className="p">{title}</h2>
             <p className="label">Posted: {formattedDate}</p>
             <p>{abstract}</p>
-            <a
-              className="external"
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
+            <p
+              className="link"
               onMouseEnter={() => toggleCursor()}
               onMouseLeave={() => toggleCursor()}
             >
               Explore
-              </a>
+            </p>
           </div>
         </div>
       </ExerciceStyled>

@@ -1,111 +1,107 @@
 import styled from 'styled-components';
 
 import { media } from '../../utils/media-queries';
-import { space } from '../../utils/mixins';
+import { space, columns } from '../../utils/mixins';
+import { colors } from '../../utils/settings';
 
-const ExerciceStyled = styled.div`
-  margin: ${space(4)} auto;
+const ExerciceStyled = styled.a`
+  color: ${colors.white} !important;
 
-  &:last-child { margin-bottom: 0; }
+  .link {
+    color: ${colors.primary} !important;
+    display: inline-block;
+
+    &:after {
+      border-bottom: 2px solid currentColor;
+      content: '';
+      display: block;
+      margin-top: -2px;
+    }
+
+    .non-touch &:hover {
+      background-color: transparent;
+      color: ${colors.primary};
+
+      &:after { display: none; }
+    }
+  }
 
   h2 {
     font-weight: 700;
     margin-bottom: ${space()};
   }
 
-  ${media.max('tablet')`
-    .content-text { margin-top: ${space()}; }
+  .content-text { margin-top: ${space()}; }
+
+  ${media.max('phone')`
+    margin: ${space(4)} 0;
+    width: 100%;
+  `}
+
+  ${media.min('phone')`
+    margin: ${space(2)} 0;
+
+    ${columns(2)}
+
+    &:nth-child(2n) .background-img {
+      margin-top: ${space(2)};
+    }
   `}
 
   ${media.min('tablet')`
-    align-items: center;
-    display: flex;
-    margin: ${space(6)} auto;
-    max-width: 1200px;
+    ${columns(3)}
 
-    .content {
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      margin-top: ${space()};
-      width: 40%;
-
-      a { margin-top: 0; }
+    &:nth-child(3n - 2) .background-img {
+      margin-top: 0;
     }
 
-    .content-text { max-width: 340px; }
-
-    &:nth-child(5n-4) {
-      .background-img {
-        margin-right: ${space(2)};
-        width: calc(45% - ${space(2)});
-      }
+    &:nth-child(3n - 1) .background-img {
+      margin-top: ${space(2)};
     }
 
-    &:nth-child(5n-3) {
-      flex-direction: row-reverse;
-
-      .background-img {
-        width: calc(40% - ${space(2)});
-        margin-left: ${space(2)};
-        margin-right: 5%;
-      }
-    }
-
-    &:nth-child(5n-2) {
-      .background-img {
-        margin-left: 10%;
-        margin-right: ${space(2)};
-        width: calc(45% - ${space(2)});
-      }
-    }
-
-    &:nth-child(5n-1) {
-      flex-direction: column;
-
-      .background-img,
-      .content { width: calc(45%); }
-
-      .content {
-        justify-content: flex-start;
-        margin-top: ${space(2)};
-      }
-    }
-
-    &:nth-child(5n) {
-      flex-direction: row-reverse;
-
-      .background-img {
-        width: calc(45% - ${space(2)});
-        margin-left: ${space(2)};
-      }
+    &:nth-child(3n) .background-img {
+      margin-top: ${space(4)};
     }
   `}
 
   ${media.min('desktop')`
-    &:nth-child(5n-3) .background-img { width: calc(35% - ${space(2)}); }
+    ${columns(4, 2)}
 
-    &:nth-child(5n-1) {
-      .background-img,
-      .content { width: calc(40%); }
+    &:nth-child(4n - 3) .background-img {
+      margin-top: 0;
     }
 
-    &:nth-child(5n-4) .background-img,
-    &:nth-child(5n-2) .background-img,
-    &:nth-child(5n) .background-img { width: calc(40% - ${space(2)}); }
+    &:nth-child(4n - 2) .background-img {
+      margin-top: ${space(2)};
+    }
+
+    &:nth-child(4n - 1) .background-img {
+      margin-top: ${space(4)};
+    }
+
+    &:nth-child(4n) .background-img {
+      margin-top: ${space(6)};
+    }
   `}
 
   ${media.min('desktopLarge')`
-    &:nth-child(5n-3) .background-img { width: calc(30% - ${space(2)}); }
+    ${columns(4, 3)}
 
-    &:nth-child(5n-1) {
-      .background-img,
-      .content { width: calc(35%); }
+    &:nth-child(4n - 3) .background-img {
+      margin-top: 0;
     }
 
-    &:nth-child(5n-4) .background-img,
-    &:nth-child(5n-2) .background-img,
-    &:nth-child(5n) .background-img { width: calc(35% - ${space(2)}); }
+    &:nth-child(4n - 2) .background-img {
+      margin-top: ${space(3)};
+    }
+
+    &:nth-child(4n - 1) .background-img {
+      margin-top: ${space(6)};
+    }
+
+    &:nth-child(4n) .background-img {
+      margin-top: ${space(9)};
+    }
   `}
 `;
 

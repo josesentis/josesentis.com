@@ -20,7 +20,7 @@ const NavigationWrapper = styled.div`
       margin-left: -4px;
     }
 
-    .link.active { color: ${colors.primary}; }
+    .non-touch & .link:hover { color: ${colors.primary}; }
   }
 
   .navigation-wrapper {
@@ -29,14 +29,6 @@ const NavigationWrapper = styled.div`
     padding-bottom: ${space(1.5)};
     padding-top: ${space(5)};
     position: relative;
-  }
-
-  .navigation-links .loaded-enter-done .hide {
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
-
-    &.active { -webkit-text-stroke: 1px ${colors.primary}; }
   }
 
   .social a { color: ${colors.base100}; }

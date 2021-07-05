@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import { media } from '../../utils/media-queries';
+import { media } from '../../utils/media-queries';
 
 const moveLeft1 = keyframes`
   0% {
@@ -15,9 +15,6 @@ const textStroke = `
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, .5);
-
-  &.dark { -webkit-text-stroke: 1px rgba(25, 25, 25, 1); }
-  &.light { -webkit-text-stroke: 1px rgba(255, 255, 255, 1); }
 `;
 
 const TextWrapper = styled.div`

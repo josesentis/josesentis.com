@@ -16,18 +16,12 @@ const typographyStyles = `
     }
 
     ${media.min('tablet')`&:after { margin-top: -8px; }`}
-    .non-touch &:hover::after { display: none; }
+      .non-touch &:hover::after { display: none; }
 
-    .non-touch &:hover {
-      background-color: ${colors.base500};
-      color: ${colors.primary};
-    }
-
-    .non-touch .dark &:hover,
-    .dark &.active {
-      background-color: ${colors.base100};
-      color: ${colors.base500};
-    }
+      .non-touch &:hover {
+        background-color: ${colors.base500};
+        color: ${colors.primary};
+      }
 
     .non-touch .playground &:hover {
       background-color: transparent;

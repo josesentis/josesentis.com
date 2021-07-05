@@ -17,7 +17,6 @@ const CustomNavLink = ({ to, className = '', children, ...props }) => (
     <NavLink
       to={to}
       className={`title link ${className}`}
-      activeClassName="active"
       exact
       {...props}
     >
