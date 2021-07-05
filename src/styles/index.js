@@ -153,7 +153,7 @@ const GlobalStyle = createGlobalStyle`
 
   *[data-scroll] {
     transform: translate3d(0, var(--pos-y), 0);
-    // visibility: hidden;
+    visibility: hidden;
   }
 
   .no-overflow { overflow: hidden; }

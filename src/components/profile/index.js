@@ -78,6 +78,7 @@ class Profile extends React.Component {
                 dangerouslySetInnerHTML={{
                   __html: content
                 }}
+                data-scroll
               />
               <Social
                 twitter={twitter}
@@ -85,7 +86,10 @@ class Profile extends React.Component {
                 linkedin={linkedin}
                 instagram={instagram}
               />
-              <p className="thanks hover-target">
+              <p
+                className="thanks hover-target"
+                data-scroll
+              >
                 Designed by&nbsp;
                 <a
                   href="http://cris-garcia.com/"
@@ -104,6 +108,7 @@ class Profile extends React.Component {
             dangerouslySetInnerHTML={{
               __html: sayhi.replace('%link', email)
             }}
+            data-scroll
           />
         </div>
       </ProfileWrapper>

@@ -15,7 +15,6 @@ class ProjectList extends React.Component {
           <Project
             key={project.title.replace(' ', Math.random())}
             project={project}
-            data-scroll
           />
         ))}
         <div className="project-image-animation" id="project-image">

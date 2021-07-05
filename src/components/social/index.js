@@ -12,6 +12,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
+      data-scroll
     >
       GitHub
     </a>
@@ -21,6 +22,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
+      data-scroll
     >
       Linkedin
     </a>
@@ -30,6 +32,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
+      data-scroll
     >
       Instagram
     </a>
@@ -39,6 +42,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
+      data-scroll
     >
       Twitter
     </a>
@@ -47,6 +51,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
         href={`mailto:${email}`}
         onMouseEnter={() => toggleCursor()}
         onMouseLeave={() => toggleCursor()}
+        data-scroll
       >
         Say Hi!
       </a>

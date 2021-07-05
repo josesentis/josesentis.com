@@ -25,15 +25,9 @@ class Scroll {
     this.progress = opts.progress !== undefined ? opts.progress : this.defaults.progress;
     this.progressId = opts.progressId !== undefined ? opts.progressId : this.defaults.progressId;
     this.elementSelector = opts.elementSelector !== undefined ? opts.elementSelector : this.defaults.elementSelector;
-
-    this.calcDocumentSizes();
-    window.addEventListener('resize', () => this.calcDocumentSizes());
   }
 
   init () {
-    this.scrollProgress = document.getElementById(this.progressId);
-    this.elements = document.querySelectorAll(this.elementSelector);
-
     this.scroller = new VirtualScroll();
     this.scroller.on(e => this.scroll(e));
 
@@ -44,11 +38,6 @@ class Scroll {
   scroll (e) {
     const newDelta = this.deltaY + e.deltaY;
 
-    console.log('Scroll...', newDelta);
-    console.log(this.documentHeight);
-    console.log(window.innerHeight);
-    // console.log(newDelta <= 0 && newDelta >= -(this.documentHeight - window.innerHeight));
-
     if (this.lastScroll === newDelta) this.direction = 0;
     else this.direction = this.lastScroll < newDelta ? -1 : 1;
 
@@ -56,12 +45,13 @@ class Scroll {
 
     if (
       newDelta <= 0
-      // && newDelta >= -(this.documentHeight - window.innerHeight)
+      && newDelta >= -(this.documentHeight - window.innerHeight)
     ) this.deltaY = newDelta;
   }
 
   loop () {
     const tickerFunction = () => {
+
       this.scrollPosition += (this.deltaY - this.scrollPosition) * this.ease;
       root.style.setProperty('--pos-y', `${this.scrollPosition}px`);
 
@@ -79,7 +69,7 @@ class Scroll {
         document.documentElement.classList.remove('_scrolled-down');
       }
 
-      if (this.progress) this.calcScrollProgress();
+      this.calcDocumentSizes();
     };
 
     gsap.ticker.add(tickerFunction);
@@ -87,6 +77,8 @@ class Scroll {
 
   visibility () {
     const tickerFunction = () => {
+      this.elements = document.querySelectorAll(this.elementSelector);
+
       forEach(this.elements, element => {
         const { top, height } = element.getBoundingClientRect();
         const bottom = top + height;
@@ -94,7 +86,7 @@ class Scroll {
         if (
           (top >= 0 && bottom <= window.innerHeight)
           || (top < 0 && bottom > 0)
-          || (top < 1920 && bottom > window.innerHeight)
+          || (top < window.innerHeight && bottom > window.innerHeight)
         ) {
           element.style.visibility = 'visible';
         } else if (element.style.visibility !== 'hidden') {
@@ -107,29 +99,10 @@ class Scroll {
   }
 
   calcDocumentSizes () {
-    const { height: rootHeight } = document.getElementById('root').getBoundingClientRect();
-    this.documentHeight = rootHeight;
+    const { body, documentElement: html } = document;
 
-    console.log('Calc document sizes', rootHeight);
-    // const { body, documentElement: html } = document;
-
-    if (this.header) {
-      const { height } = document.getElementById('header').getBoundingClientRect();
-
-      this.appendedHeight += height - this.headerHeight;
-      this.headerHeight = height;
-
-      root.style.setProperty('--sizer-h', `${this.appendedHeight}px`);
-      root.style.setProperty('--header-h', `${this.headerHeight}px`);
-    }
-
-    // this.documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
-    //   html.clientHeight, html.scrollHeight, html.offsetHeight);
-  }
-
-  calcScrollProgress () {
-    const progress = Math.abs(this.scrollPosition) / (this.documentHeight - window.innerHeight);
-    this.scrollProgress.style.transform = `scale3d(${progress}, 1, 1)`;
+    this.documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight);
   }
 }
 
