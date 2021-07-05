@@ -4,7 +4,7 @@ import { toggleCursor } from '../cursor';
 
 import SocialStyled from './styles';
 
-const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
+const Social = ({ github, twitter, instagram, linkedin, email = '', scroll = false }) => (
   <SocialStyled className="social">
     <a
       href={github}
@@ -12,7 +12,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
-      data-scroll
+      data-scroll={scroll ? 'true' : ''}
     >
       GitHub
     </a>
@@ -22,7 +22,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
-      data-scroll
+      data-scroll={scroll ? 'true' : ''}
     >
       Linkedin
     </a>
@@ -32,7 +32,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
-      data-scroll
+      data-scroll={scroll ? 'true' : ''}
     >
       Instagram
     </a>
@@ -42,7 +42,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
       rel="noopener noreferrer"
       onMouseEnter={() => toggleCursor()}
       onMouseLeave={() => toggleCursor()}
-      data-scroll
+      data-scroll={scroll ? 'true' : ''}
     >
       Twitter
     </a>
@@ -51,7 +51,7 @@ const Social = ({ github, twitter, instagram, linkedin, email = '' }) => (
         href={`mailto:${email}`}
         onMouseEnter={() => toggleCursor()}
         onMouseLeave={() => toggleCursor()}
-        data-scroll
+        data-scroll={scroll ? 'true' : ''}
       >
         Say Hi!
       </a>

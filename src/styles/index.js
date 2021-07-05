@@ -151,12 +151,12 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
-  *[data-scroll] {
+  *[data-scroll="true"] {
     transform: translate3d(0, var(--pos-y), 0);
     visibility: hidden;
   }
 
-  .no-overflow { overflow: hidden; }
+  .no-scroll { overflow: hidden; }
 
   ${typographyStyles}
   ${utils}

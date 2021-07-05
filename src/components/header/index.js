@@ -23,8 +23,8 @@ class Header extends React.Component {
   toggleNavigation = () => {
     const { showNavigation } = this.state;
 
-    if (showNavigation) document.documentElement.classList.remove('no-overflow');
-    else document.documentElement.classList.add('no-overflow');
+    if (showNavigation) document.documentElement.classList.remove('no-scroll');
+    else document.documentElement.classList.add('no-scroll');
 
     this.setState({ showNavigation: !showNavigation });
   }

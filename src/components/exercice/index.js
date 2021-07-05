@@ -31,6 +31,7 @@ class Exercice extends React.PureComponent {
         target="_blank"
         rel="noopener noreferrer"
         className="link"
+        data-scroll
       >
         {visible && <BackgroundImage src={`${playground}${image}`} alt={title} scaleEffect={true} />}
         <div className="content">

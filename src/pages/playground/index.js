@@ -8,7 +8,6 @@ import axios from 'axios';
 import { toggleCursor } from '../../components/cursor';
 import Exercice from '../../components/exercice';
 import Layout, { Wrapper } from '../../layouts/Default';
-import CircleText from '../../components/circleText';
 import MovingText from '../../components/movingText';
 import Noise from '../../components/noise';
 
@@ -57,12 +56,11 @@ class Playground extends React.Component {
               <Noise />
               <MovingText id="moving-text">{[...Array(4)].map((item, index) => <span key={`text-${index}`}>{this._rotatingTitle}</span>)}</MovingText>
               <Wrapper>
-                <CircleText
-                  text={this._rotatingTitle}
-                  onMouseEnter={() => { toggleCursor('rotating-text') }}
-                  onMouseLeave={() => { toggleCursor('rotating-text') }}
-                />
-                <div id="intro-text" className="intro">
+                <div
+                  id="intro-text"
+                  className="intro"
+                  data-scroll
+                >
                   <div dangerouslySetInnerHTML={{ __html: abstract }}></div>
                   <Link
                     to={routes.home}

@@ -44,7 +44,8 @@ class Scroll {
     this.lastScroll = this.deltaY;
 
     if (
-      newDelta <= 0
+      !document.documentElement.classList.contains('no-scroll')
+      && newDelta <= 0
       && newDelta >= -(this.documentHeight - window.innerHeight)
     ) this.deltaY = newDelta;
   }

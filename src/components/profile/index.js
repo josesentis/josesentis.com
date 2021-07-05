@@ -98,6 +98,7 @@ class Profile extends React.Component {
                 github={github}
                 linkedin={linkedin}
                 instagram={instagram}
+                scroll="true"
               />
               <p
                 className="thanks hover-target"

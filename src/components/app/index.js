@@ -21,7 +21,8 @@ import firmLogger from '../../utils/firm-logger';
 const App = () => {
   const scroll = new Scroll({
     header: false,
-    progress: false
+    progress: false,
+    elementSelector: '[data-scroll="true"]'
   });
 
   axios.defaults.baseURL = playground;
