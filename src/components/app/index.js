@@ -6,7 +6,6 @@ import isExplorer from '@runroom/purejs/lib/isExplorer';
 import touchable from '@runroom/purejs/lib/touchable';
 import axios from 'axios';
 
-import Scroll from '../../classes/Scroll';
 import useLoading from '../../hooks/useLoading';
 import AppRouter from '../appRouter';
 import Cursor from '../cursor';
@@ -19,12 +18,6 @@ import GlobalStyle from '../../styles';
 import firmLogger from '../../utils/firm-logger';
 
 const App = () => {
-  const scroll = new Scroll({
-    header: false,
-    progress: false,
-    elementSelector: '[data-scroll="true"]'
-  });
-
   axios.defaults.baseURL = playground;
   axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -37,8 +30,6 @@ const App = () => {
 
     firmLogger();
   }, []);
-
-  if (!loading) scroll.init();
 
   return (
     <>

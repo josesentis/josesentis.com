@@ -83,7 +83,7 @@ class Profile extends React.Component {
     return (
       <ProfileWrapper ref={ref => this._text = ref}>
         <div id="content" className="content-wrapper">
-          <div id="image" className="profile-image"><BackgroundImage src={image} /></div>
+          <div id="image" className="profile-image" data-scroll><BackgroundImage src={image} /></div>
           <div className="content">
             <div className="p-big">
               <div

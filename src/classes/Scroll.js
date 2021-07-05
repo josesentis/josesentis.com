@@ -2,6 +2,8 @@ import gsap from 'gsap';
 import forEach from '@runroom/purejs/lib/forEach';
 import VirtualScroll from 'virtual-scroll';
 
+import { isNewLocation } from '../utils/history';
+
 const root = document.documentElement;
 
 class Scroll {
@@ -19,6 +21,7 @@ class Scroll {
     this.scrollPosition = 0;
     this.appendedHeight = 0;
     this.headerHeight = 0;
+    this.scrolling = false;
 
     this.ease = opts.ease !== undefined ? opts.ease : this.defaults.ease;
     this.header = opts.header !== undefined ? opts.header : this.defaults.header;
@@ -35,11 +38,22 @@ class Scroll {
     this.visibility();
   }
 
+  destroy () {
+    this.scroller.off(e => this.scroll(e));
+    gsap.ticker.remove(this.loopFunction);
+    gsap.ticker.remove(this.visibilityFunction);
+  }
+
   scroll (e) {
     const newDelta = this.deltaY + e.deltaY;
 
-    if (this.lastScroll === newDelta) this.direction = 0;
-    else this.direction = this.lastScroll < newDelta ? -1 : 1;
+    if (this.lastScroll === newDelta) {
+      this.direction = 0;
+      this.scrolling = false;
+    } else {
+      this.direction = this.lastScroll < newDelta ? -1 : 1;
+      this.scrolling = true;
+    }
 
     this.lastScroll = this.deltaY;
 
@@ -51,8 +65,7 @@ class Scroll {
   }
 
   loop () {
-    const tickerFunction = () => {
-
+    this.loopFunction = () => {
       this.scrollPosition += (this.deltaY - this.scrollPosition) * this.ease;
       root.style.setProperty('--pos-y', `${this.scrollPosition}px`);
 
@@ -73,11 +86,11 @@ class Scroll {
       this.calcDocumentSizes();
     };
 
-    gsap.ticker.add(tickerFunction);
+    gsap.ticker.add(this.loopFunction);
   }
 
   visibility () {
-    const tickerFunction = () => {
+    this.visibilityFunction = () => {
       this.elements = document.querySelectorAll(this.elementSelector);
 
       forEach(this.elements, element => {
@@ -96,7 +109,7 @@ class Scroll {
       });
     };
 
-    gsap.ticker.add(tickerFunction);
+    gsap.ticker.add(this.visibilityFunction);
   }
 
   calcDocumentSizes () {

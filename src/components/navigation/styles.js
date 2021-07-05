@@ -25,7 +25,6 @@ const NavigationWrapper = styled.div`
 
   .navigation-wrapper {
     height: 100%;
-    overflow-y: auto;
     padding-bottom: ${space(1.5)};
     padding-top: ${space(5)};
     position: relative;

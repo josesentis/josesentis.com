@@ -9,9 +9,29 @@ import { AppearingText, NavigationWrapper } from '../../components/navigation';
 import Profile from '../../components/profile';
 import withLoader from '../../hocs/withLoader';
 
+import Scroll from '../../classes/Scroll';
+
 import GET_ABOUT from './queries';
 
 class About extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.scroll = new Scroll({
+      header: false,
+      progress: false,
+      elementSelector: '[data-scroll="true"]'
+    });
+  }
+
+  componentDidMount () {
+    this.scroll.init();
+  }
+
+  componentWillUnmount () {
+    this.scroll.destroy();
+  }
+
   render () {
     const { loaded } = this.props;
 

@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { withRouter } from "react-router";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+import Scroll from '../../classes/Scroll';
 import Header from '../../components/header';
 import { AppearingText } from '../../components/navigation';
 import ProjectList from '../../components/projectList';
@@ -13,6 +14,24 @@ import GET_HOME_DATA from './queries';
 import { Fold } from './styles';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.scroll = new Scroll({
+      header: false,
+      progress: false,
+      elementSelector: '[data-scroll="true"]'
+    });
+  }
+
+  componentDidMount () {
+    this.scroll.init();
+  }
+
+  componentWillUnmount () {
+    this.scroll.destroy();
+  }
+
   render () {
     const { loaded } = this.props;
     const currentYear = new Date().getFullYear().toString();

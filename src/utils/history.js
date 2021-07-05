@@ -3,6 +3,8 @@ import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
 
 const isNewLocation = location => {
+  if (prevLocation.pathname === '' && prevLocation.hash === '') return true;
+
   const pathChanged = prevLocation.pathname !== location.pathname;
   const hashChanged = prevLocation.hash !== location.hash;
   return pathChanged || hashChanged;
@@ -16,7 +18,11 @@ let prevLocation = {
 history.listen((location) => {
   const isNew = isNewLocation(location);
 
-  if (isNew) window.scrollTo(0, 0);
+  if (isNew) {
+    window.scrollTo(0, 0);
+    document.documentElement.classList.remove('no-scroll');
+  }
+
   prevLocation = location;
 });
 

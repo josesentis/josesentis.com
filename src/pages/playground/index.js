@@ -5,6 +5,7 @@ import { withRouter } from "react-router";
 import striptags from 'striptags';
 import axios from 'axios';
 
+import Scroll from '../../classes/Scroll';
 import { toggleCursor } from '../../components/cursor';
 import Exercice from '../../components/exercice';
 import Layout, { Wrapper } from '../../layouts/Default';
@@ -24,13 +25,29 @@ class Playground extends React.Component {
     exercices: {}
   }
 
+  constructor(props) {
+    super(props);
+
+    this.scroll = new Scroll({
+      header: false,
+      progress: false,
+      elementSelector: '[data-scroll="true"]'
+    });
+  }
+
   componentDidMount () {
+    this.scroll.init();
+
     axios.get(`contents.json`)
       .then(({ data }) => {
         this.setState({ loaded: true, exercices: data });
       }).catch(() => {
         this.props.history.push('/404');
       });
+  }
+
+  componentWillUnmount () {
+    this.scroll.destroy();
   }
 
   render () {
