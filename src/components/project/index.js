@@ -42,6 +42,7 @@ class Project extends React.PureComponent {
     return (
       <ProjectStyled
         className="project"
+        data-scroll
         onMouseEnter={() => {
           this._projectImage.classList.add('is-active');
           toggleCursor();

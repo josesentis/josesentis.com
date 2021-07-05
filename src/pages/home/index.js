@@ -38,7 +38,7 @@ class Home extends React.Component {
                   <TransitionGroup>
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={400}>
-                        <h1 className="title">
+                        <h1 className="title" data-scroll>
                           {job.split(' ').map((word, j) => (
                             <AppearingText key={`job-${j}`}>
                               {word.split('').map((char, i) => (
@@ -53,7 +53,7 @@ class Home extends React.Component {
                     {loaded && !loading && (
                       <CSSTransition classNames="loaded" timeout={600}>
                         <div>
-                          <AppearingText className="title2">
+                          <AppearingText className="title2" data-scroll>
                             <span className="text">{name} - {currentYear}</span>
                           </AppearingText>
                         </div>

@@ -97,12 +97,6 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility !important;
   }
 
-  html,
-  body {
-    height: 100%;
-    position: relative;
-  }
-
   * { cursor:none !important; }
   ::-webkit-scrollbar-track-piece { background-color: transparent; }
   ::-webkit-scrollbar { width: 0px; }
@@ -116,7 +110,6 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0;
     line-height: ${space()};
     margin: 0;
-    overflow-x: hidden;
     padding: 0;
   }
 
@@ -141,6 +134,26 @@ const GlobalStyle = createGlobalStyle`
 
   .stroke {
     ${textStroke}
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  html {
+    --pos-y: 0;
+
+    overflow: hidden;
+  }
+
+  *[data-scroll] {
+    transform: translate3d(0, var(--pos-y), 0);
+    // visibility: hidden;
   }
 
   .no-overflow { overflow: hidden; }

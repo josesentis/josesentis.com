@@ -20,19 +20,17 @@ class Scroll {
     this.appendedHeight = 0;
     this.headerHeight = 0;
 
-    this.ease = opts.ease || this.defaults.ease;
-    this.header = opts.header || this.defaults.header;
-    this.progress = opts.progress || this.defaults.progress;
-    this.progressId = opts.progressId || this.defaults.progressId;
-    this.elementSelector = opts.elementSelector || this.defaults.elementSelector;
+    this.ease = opts.ease !== undefined ? opts.ease : this.defaults.ease;
+    this.header = opts.header !== undefined ? opts.header : this.defaults.header;
+    this.progress = opts.progress !== undefined ? opts.progress : this.defaults.progress;
+    this.progressId = opts.progressId !== undefined ? opts.progressId : this.defaults.progressId;
+    this.elementSelector = opts.elementSelector !== undefined ? opts.elementSelector : this.defaults.elementSelector;
 
     this.calcDocumentSizes();
     window.addEventListener('resize', () => this.calcDocumentSizes());
-
-    this.initialize();
   }
 
-  initialize () {
+  init () {
     this.scrollProgress = document.getElementById(this.progressId);
     this.elements = document.querySelectorAll(this.elementSelector);
 
@@ -46,6 +44,11 @@ class Scroll {
   scroll (e) {
     const newDelta = this.deltaY + e.deltaY;
 
+    console.log('Scroll...', newDelta);
+    console.log(this.documentHeight);
+    console.log(window.innerHeight);
+    // console.log(newDelta <= 0 && newDelta >= -(this.documentHeight - window.innerHeight));
+
     if (this.lastScroll === newDelta) this.direction = 0;
     else this.direction = this.lastScroll < newDelta ? -1 : 1;
 
@@ -53,7 +56,7 @@ class Scroll {
 
     if (
       newDelta <= 0
-      && newDelta >= -(this.documentHeight - window.innerHeight)
+      // && newDelta >= -(this.documentHeight - window.innerHeight)
     ) this.deltaY = newDelta;
   }
 
@@ -76,7 +79,7 @@ class Scroll {
         document.documentElement.classList.remove('_scrolled-down');
       }
 
-      if (this.progress) this.calcscrollProgress();
+      if (this.progress) this.calcScrollProgress();
     };
 
     gsap.ticker.add(tickerFunction);
@@ -104,7 +107,11 @@ class Scroll {
   }
 
   calcDocumentSizes () {
-    const { body, documentElement: html } = document;
+    const { height: rootHeight } = document.getElementById('root').getBoundingClientRect();
+    this.documentHeight = rootHeight;
+
+    console.log('Calc document sizes', rootHeight);
+    // const { body, documentElement: html } = document;
 
     if (this.header) {
       const { height } = document.getElementById('header').getBoundingClientRect();
@@ -116,11 +123,11 @@ class Scroll {
       root.style.setProperty('--header-h', `${this.headerHeight}px`);
     }
 
-    this.documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
-      html.clientHeight, html.scrollHeight, html.offsetHeight);
+    // this.documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
+    //   html.clientHeight, html.scrollHeight, html.offsetHeight);
   }
 
-  calcscrollProgress () {
+  calcScrollProgress () {
     const progress = Math.abs(this.scrollPosition) / (this.documentHeight - window.innerHeight);
     this.scrollProgress.style.transform = `scale3d(${progress}, 1, 1)`;
   }

@@ -6,6 +6,7 @@ import isExplorer from '@runroom/purejs/lib/isExplorer';
 import touchable from '@runroom/purejs/lib/touchable';
 import axios from 'axios';
 
+import Scroll from '../../classes/Scroll';
 import useLoading from '../../hooks/useLoading';
 import AppRouter from '../appRouter';
 import Cursor from '../cursor';
@@ -18,17 +19,25 @@ import GlobalStyle from '../../styles';
 import firmLogger from '../../utils/firm-logger';
 
 const App = () => {
+  const scroll = new Scroll({
+    header: false,
+    progress: false
+  });
+
   axios.defaults.baseURL = playground;
   axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   const { loading, showLoader } = useLoading();
 
   useEffect(() => {
+
     if (isExplorer()) document.documentElement.classList.add('browser-ie');
     document.documentElement.classList.add(touchable() ? 'touch' : 'non-touch');
 
     firmLogger();
   }, []);
+
+  if (!loading) scroll.init();
 
   return (
     <>
