@@ -2,8 +2,6 @@ import gsap from 'gsap';
 import forEach from '@runroom/purejs/lib/forEach';
 import VirtualScroll from 'virtual-scroll';
 
-import { isNewLocation } from '../utils/history';
-
 const root = document.documentElement;
 
 class Scroll {
