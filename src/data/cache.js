@@ -1,7 +1,7 @@
 const data = {
-  job: `creative frontend developer`,
+  job: `creative developer`,
   name: `jose sentis`,
-  description: `Hi – I’m Jose, a Creative Frontend Developer based in Barcelona. I’m open for new creative opportunities. Don’t be shy, say hi!`,
+  description: `Hi – I’m Jose, a Creative Developer based in Barcelona. I’m open for new creative opportunities. Don’t be shy, say hi!`,
   ogImage: `images/og-image.jpg`,
   siteUrl: `https://www.josesentis.com`,
   social: {
@@ -22,7 +22,7 @@ const data = {
     __typename: 'Pages',
     about: {
       __typename: 'About page',
-      content: `<p>I’m Jose Sentis, Creative Frontend Developer based in Barcelona.</p>
+      content: `<p>I’m Jose Sentis, Creative Developer based in Barcelona.</p>
       <p>I consider coding a form of creation and I love to work with crazy designers that push me to think outside the box, so we can bring to life tons of amazing projects.</p>
       <p>Besides my passion for coding (as you can see) you could easily find me on a Saturday night singing in a karaoke (not the best performer but the one who puts the best show on stage for sure).</p>`,
       image: '/images/profile.jpg',
