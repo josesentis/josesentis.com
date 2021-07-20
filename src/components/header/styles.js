@@ -53,7 +53,7 @@ const HeaderStyled = styled.header`
     transition: transform 0s;
 
     > div {
-      max-width: 150px;
+      max-width: 120px;
 
       &:last-child { display: none; }
     }
